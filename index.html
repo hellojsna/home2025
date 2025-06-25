@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Na</title>
+    <style>
+        @import url('/resources/css/root.css');
+        @import url('/resources/css/index.css');
+
+        .JsPage {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+
+            color: var(--PrimaryText);
+            font-family: "SeoulAlrim", sans-serif;
+            padding: 20px;
+        }
+
+        .JsPage .PageTitle {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--PrimaryText);
+            margin: 0.3rem 0;
+        }
+
+        .JsPage p {
+            font-size: 1rem;
+            color: var(--PrimaryText);
+            margin: 0.3rem 0;
+        }
+
+        .JsPage.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--PrimaryBackground);
+        }
+
+        .JsPage .PageContent {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        #JsPageContainer {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100vh;
+            min-height: 100vh;
+            z-index: 1;
+            backdrop-filter: saturate(180%);
+            box-shadow: 0 -40px 40px rgba(0, 0, 0, 0.2);
+            background-color: var(--BlurBackground);
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        #JsPageContainer #JsPages {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: fit-content;
+            height: 100%;
+        }
+
+        #HelloJs {
+            font-family: "SeoulAlrim", sans-serif;
+            font-weight: bold;
+        }
+
+        #HelloJs h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--PrimaryText);
+            animation: HelloJsTitle 4s cubic-bezier(0.22, 1, 0.36, 1);
+            margin: 0;
+        }
+
+        #HelloJs h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--PrimaryText);
+            animation: HelloJsSubtitle 4s cubic-bezier(0.22, 1, 0.36, 1);
+            margin: 0;
+        }
+
+        #HelloJs>div {
+            width: 100%;
+            height: 100%;
+        }
+
+        #HelloVideo {
+            position: fixed;
+            padding: 1rem;
+            box-sizing: border-box;
+            border-radius: 20px;
+        }
+
+        #HelloVideo>video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        #HelloContent {
+            position: absolute;
+            background-color: var(--BlurBackground);
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #JsAppLibrary {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        #JsAppLibrary>h2 {
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        #JsAppLibrary>span {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        #JsAppLibrary .JsAppItem {
+            width: 8rem;
+            height: 5rem;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--PrimaryText);
+            background: none;
+            border: none;
+            text-decoration: none;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: pointer;
+        }
+
+        #JsAppLibrary .JsAppItem picture {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+        }
+
+        #JsAppLibrary .JsAppItem:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+            filter: drop-shadow(0 0 5px var(--ListBackground));
+        }
+
+        #JsAppLibrary .JsAppItem p {
+            font-size: 1rem;
+            margin-top: 0.2em;
+            text-align: center;
+            letter-spacing: -0.03em;
+        }
+
+        #JsAppLibrary .JsAppItem .JsAppLink {
+            display: none;
+        }
+
+        #JsAppLibrary .JsAppItem .JsAppDescription {
+            display: none;
+        }
+
+        #JsAppDetailView {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 5678;
+        }
+        #JsAppDetailBackground {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            background-color: var(--BlurBackground);
+            backdrop-filter: blur(10px) saturate(180%);
+            opacity: 0;
+            transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            cursor: pointer
+        }
+        #JsAppDetailBackground.show {
+            opacity: 1;
+        }
+        #JsAppDetailView > #JsAppDetailContent {
+            width: 90%;
+            min-width: 50%;
+            max-width: 600px;
+            background-color: var(--ListBackground);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        #JsAppDetailView.show > #JsAppDetailContent, #JsAppDetailView.show > #JsAppDetailControlContainer {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        #JsAppDetailContent picture {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        #JsAppDetailContent #JsAppDetailTitle {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--PrimaryText);
+            margin: 0.25rem 0;
+        }
+
+        #JsAppDetailContent #JsAppDetailDescription {
+            width: 100%;
+            background-color: var(--SecondaryBackground);
+            font-size: 1rem;
+            color: var(--PrimaryText);
+            margin: 0.5rem 0;
+            padding: 1rem;
+            box-sizing: border-box;
+            border-radius: 0.5rem;
+        }
+
+        #JsAppDetailControlContainer {
+            width: 90%;
+            min-width: 50%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.75rem;
+            box-sizing: border-box;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+
+        #JsAppDetailLinkContainer {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        #JsAppDetailLinkContainer a,
+        #JsAppDetailControlContainer button {
+            height: 2rem;
+            font-size: 1rem;
+            text-decoration: none;
+            color: var(--PrimaryText);
+            background-color: var(--BlurBackground);
+            box-shadow: 0 0px 2px var(--PrimaryText);
+            backdrop-filter: blur(10px) saturate(180%);
+            margin-right: 0.75rem;
+            padding: 1rem;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            border-radius: 999px;
+            transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+        }
+
+        #JsAppDetailControlContainer>#JsAppDetailCloseButton {
+            width: 2rem;
+            height: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        #JsAppDetailCloseButton>svg {
+            width: 100%;
+            height: 100%;
+            color: var(--red);
+            filter: drop-shadow(0 0 5px var(--red));
+        }
+
+        #JsAppDetailLinkContainer a:hover,
+        #JsAppDetailControlContainer button:hover {
+            background-color: var(--PrimaryText);
+            color: var(--PrimaryBackground);
+        }
+
+        @keyframes HelloJsTitle {
+            0% {
+                transform: translateY(100%);
+                filter: blur(8px);
+                opacity: 0;
+            }
+
+            60% {
+                transform: translateY(100%);
+                filter: blur(8px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes HelloJsSubtitle {
+            0% {
+                transform: translateY(250%);
+                filter: blur(8px);
+                opacity: 0;
+            }
+
+            10% {
+                transform: translateY(250%);
+                filter: blur(8px);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(100%);
+                filter: blur(0);
+                opacity: 1;
+            }
+
+            60% {
+                transform: translateY(100%);
+                filter: blur(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0%);
+                filter: blur(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="HelloJs" class="JsPage fixed">
+        <div id="HelloVideo">
+            <video id="HelloVideoContent" autobuffer autoplay muted loop playsinline>
+                <source src="./resources/videos/Hello_1080_H264.mov" type="video/mp4">
+            </video>
+        </div>
+        <div id="HelloContent">
+            <h3>Hello, I'm</h3>
+            <h1>Js Na</h1>
+        </div>
+    </div>
+    <div id="JsPageContainer">
+        <span id="JsPages">
+            <div id="AboutJs" class="JsPage">
+                <span class="PageContent">
+                    <h1 class="PageTitle">Hello, Js Na!</h1>
+                    <p>안녕하세요.</p>
+                    <p>iOS 앱 개발자 나지성입니다.</p>
+                </span>
+            </div>
+            <div id="ExperienceJs" class="JsPage">
+                <span class="PageContent">
+                    <h1 class="PageTitle">Experiences.</h1>
+                    <p>2019 <span class="bold">임진초등학교 SW 영재학급 (주말반)</span> 수료</p>
+                    <p>2019 SW영재교육 산출물 경진대회 참가: <span class="bold">Project Peri</span></p>
+                    <p>2020 덕이중학교 <span class="bold">내 친구 아두이노</span> 동아리 부장</p>
+                    <p>2021 경기꿈의학교(현 경기공유학교) <span class="bold">나도 인공지능 개발자</span> 차장</p>
+                    <p>2024 가좌고등학교 <span class="bold">데브큐스(프로그래밍)</span> 동아리 부장</p>
+                </span>
+            </div>
+            <div id="MadeByJs" class="JsPage">
+                <span class="PageContent">
+                    <h1 class="PageTitle">Made By Js.</h1>
+                    <p>아이콘을 눌러 자세한 정보를 확인하실 수 있습니다.</p>
+                </span>
+                <div id="JsAppLibrary">
+                    <span>
+                        <button id="JsAppItem-ProjectPeri" class="JsAppItem">
+                            <picture>
+                                <source srcset="/resources/images/ProjectPeriIcon-Dark.png"
+                                    media="(prefers-color-scheme: dark)" />
+                                <img src="/resources/images/ProjectPeriIcon-Default.png" alt="Project Peri" />
+                            </picture>
+                            <p class="JsAppTitle">Project Peri</p>
+                            <a class="JsAppLink" href="https://archive.jsna.dev/projectperi" target="_blank">Js Archive</a>
+                            <p class="JsAppDescription">2019년 임진초등학교 소프트웨어 영재학급 산출물.<br>스마트폰으로 제어 가능한 미세먼지 측정 및 공기청정기
+                                장치.</p>
+                        </button>
+                        <button id="JsAppItem-StorageManager" class="JsAppItem">
+                            <picture>
+                                <source srcset="/resources/images/StorageManagerIcon-Dark.png"
+                                    media="(prefers-color-scheme: dark)" />
+                                <img src="/resources/images/StorageManagerIcon-Default.png" alt="StorageManager" />
+                            </picture>
+                            <p class="JsAppTitle">StorageManager</p>
+                            <p class="JsAppDescription">목록으로 정리해 한 눈에 보는 창고 상태 관리 앱.</p>
+                        </button>
+                        <button id="JsAppItem-SmallCamera" class="JsAppItem">
+                            <picture>
+                                <source srcset="/resources/images/NoIcon-Dark.png"
+                                    media="(prefers-color-scheme: dark)" />
+                                <img src="/resources/images/NoIcon-Default.png" alt="작은 카메라" />
+                            </picture>
+                            <p class="JsAppTitle">작은 카메라</p>
+                            <p class="JsAppDescription">사진의 화질을 약간 낮춰 파일 용량을 EBS 온라인 클래스 업로드 제한에 맞게 조절해주는 앱.</p>
+                        </button>
+                        <button id="JsAppItem-TodayLunch" class="JsAppItem">
+                            <picture>
+                                <source srcset="/resources/images/TodayLunchIcon-Dark.png"
+                                    media="(prefers-color-scheme: dark)" />
+                                <img src="/resources/images/TodayLunchIcon-Default.png" alt="TodayLunch" />
+                            </picture>
+                            <p class="JsAppTitle">TodayLunch</p>
+                            <a class="JsAppLink" href="https://apps.apple.com/kr/app/todaylunch/id6443977069"
+                                target="_blank">App Store</a>
+                            <p class="JsAppDescription">손목에서 보는 오늘 급식 메뉴 - Apple Watch를 지원하는 급식 앱.<br>전국 초등학교, 중학교, 고등학교
+                                및 일본 일부 지역 학교의 급식 메뉴를 간편하게 확인하고, 공유할 수 있습니다.</p>
+                        </button>
+                        <button id="JsAppItem-TrainNet" class="JsAppItem">
+                            <picture>
+                                <source srcset="/resources/images/NoIcon-Dark.png"
+                                    media="(prefers-color-scheme: dark)" />
+                                <img src="/resources/images/NoIcon-Default.png" alt="TrainNet" />
+                            </picture>
+                            <p class="JsAppTitle">TrainNet</p>
+                            <a class="JsAppLink" href="https://trainnet.kr"
+                                target="_blank">TrainNet</a>
+                            <p class="JsAppDescription">모두를 위한 철도 플랫폼 - TrainNet<br>트레인넷은 단순한 지하철 노선도가 아닙니다.</p>
+                        </button>
+                        <button id="JsAppItem-Station" class="JsAppItem">
+                            <picture>
+                                <source srcset="/resources/images/StationIcon-Dark.png"
+                                    media="(prefers-color-scheme: dark)" />
+                                <img src="/resources/images/StationIcon-Default.png" alt="역.한국" />
+                            </picture>
+                            <p class="JsAppTitle">역.한국</p>
+                            <a class="JsAppLink" href="https://역.한국" target="_blank">역.한국</a>
+                            <p class="JsAppDescription">가장 빠른 지하철역 정보 검색 서비스 - 역.한국 from TrainNet<br>복잡한 주소 대신 <a
+                                    href="https://역.한국/김포공항5">역.한국/김포공항5</a> 처럼 짧은 링크로 공유할 수 있습니다.</p>
+                        </button>
+                        <button id="JsAppItem-SwipeBalance" class="JsAppItem">
+                            <picture>
+                                <source srcset="/resources/images/NoIcon-Dark.png"
+                                    media="(prefers-color-scheme: dark)" />
+                                <img src="/resources/images/NoIcon-Default.png" alt="역.한국" />
+                            </picture>
+                            <p class="JsAppTitle">SwipeBalance</p>
+                            <a class="JsAppLink" href="https://testflight.apple.com/join/xQWasXfj"
+                                target="_blank">TestFlight</a>
+                            <p class="JsAppDescription">선불 교통 카드 잔액 조회 앱 - SwipeBalance from TrainNet<br>iOS 18 이상 버전의 제어 센터에 제어 항목을 추가하면 앱에 더 빠른 접근이 가능합니다.</p>
+                        </button>
+                        <button id="JsAppItem-InfoBoard" class="JsAppItem">
+                            <picture>
+                                <source srcset="/resources/images/NoIcon-Dark.png"
+                                    media="(prefers-color-scheme: dark)" />
+                                <img src="/resources/images/NoIcon-Default.png" alt="InfoBoard" />
+                            </picture>
+                            <p class="JsAppTitle">InfoBoard</p>
+                            <p class="JsAppDescription">학교 현관 인포 디스플레이 프로젝트</p>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </span>
+    </div>
+    <div id="JsAppDetailView">
+        <div id="JsAppDetailBackground"></div>
+        <div id="JsAppDetailContent">
+            <span id="JsAppDetailIconContainer">
+                <picture>
+                    <source srcset="/resources/images/ProjectPeriIcon-Dark.png" media="(prefers-color-scheme: dark)" />
+                    <img src="/resources/images/ProjectPeriIcon-Default.png" alt="Project Peri" />
+                </picture>
+            </span>
+            <h1 id="JsAppDetailTitle">Project</h1>
+            <p id="JsAppDetailDescription">Description</p>
+        </div>
+        <div id="JsAppDetailControlContainer">
+            <span id="JsAppDetailLinkContainer">
+            </span>
+            <button id="JsAppDetailCloseButton"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                </svg></button>
+        </div>
+    </div>
+
+    <script src="/resources/scripts/root.js"></script>
+    <script>
+        window.addEventListener('scroll', function () {
+            const helloJs = eById('HelloJs');
+            const JsPageContainer = eById('JsPageContainer');
+            const HelloVideo = eById('HelloVideo');
+            const HelloVideoContent = eById('HelloVideoContent');
+
+            const scrollY = window.scrollY;
+            const maxBlur = 20;
+            // innerHeight 대신 JsPageContainer의 높이를 사용하여 스크롤 위치에 따라 블러 효과를 조정합니다.
+            // containerHeight부터 containerHeight + 200px 사이에서 블러 효과를 적용합니다.
+            const containerHeight = JsPageContainer.offsetHeight;
+            const containerBlurHeight = containerHeight * 0.35;
+            if (scrollY > containerBlurHeight) {
+                const ratio = Math.min((scrollY - containerBlurHeight) / 200, 1);
+                const blurValue = maxBlur * ratio;
+                helloJs.style.filter = `blur(${blurValue}px)`;
+            } else {
+                helloJs.style.filter = 'blur(0px)';
+            }
+            // JsPageContainer is scrolled into top of viewport, change background color
+            if (scrollY >= containerHeight * 0.95) {
+                JsPageContainer.style.backgroundColor = 'var(--SecondaryBackground)';
+                HelloVideoContent.pause();
+            } else {
+                HelloVideoContent.play();
+                JsPageContainer.style.backgroundColor = 'var(--BlurBackground)';
+            }
+        });
+        const JsAppDetailCloseButton = eById('JsAppDetailCloseButton');
+        const JsAppDetailView = eById('JsAppDetailView');
+        const JsAppDetailBackground = eById('JsAppDetailBackground');
+        function hideJsAppDetailView() {
+            JsAppDetailView.classList.remove('show');
+            JsAppDetailBackground.classList.remove('show');
+            setTimeout(function () {
+                JsAppDetailView.style.display = 'none';
+                JsAppDetailBackground.style.display = 'none';
+            }, 300);
+        }
+        JsAppDetailBackground.addEventListener('click', function () {
+            hideJsAppDetailView();
+        });
+        JsAppDetailCloseButton.addEventListener('click', function () {
+            hideJsAppDetailView();
+        });
+        const JsAppItems = document.querySelectorAll('.JsAppItem');
+        JsAppItems.forEach(item => {
+            // 클릭된 아이템의 정보를 JsAppDetailView에 표시합니다.
+            //
+            item.addEventListener('click', function () {
+                eById('JsAppDetailTitle').innerText = item.querySelector('.JsAppTitle').innerText;
+                eById('JsAppDetailDescription').innerHTML = item.querySelector('.JsAppDescription').innerHTML;
+                eById('JsAppDetailIconContainer').innerHTML = item.querySelector('picture').outerHTML;
+                const link = item.querySelectorAll('.JsAppLink');
+                const JsAppDetailLinkContainer = eById('JsAppDetailLinkContainer');
+                JsAppDetailLinkContainer.innerHTML = ''; // 기존 링크 제거
+                if (link) {
+                    for (let i = 0; i < link.length; i++) {
+                        // duplicate element
+                        const a = document.createElement('a');
+                        a.href = link[i].href;
+                        a.target = '_blank';
+                        a.innerText = link[i].innerText;
+                        JsAppDetailLinkContainer.appendChild(a);
+                    }
+                }
+                JsAppDetailView.style.display = 'flex';
+                JsAppDetailBackground.style.display = 'block';
+                setTimeout(function () {
+                    JsAppDetailView.classList.add('show');
+                    JsAppDetailBackground.classList.add('show');
+                }, 10);
+            });
+        });
+    </script>
+</body>
+
+</html>
