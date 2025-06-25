@@ -417,6 +417,19 @@
                     <p>2024 가좌고등학교 <span class="bold">데브큐스(프로그래밍)</span> 동아리 부장</p>
                 </span>
             </div>
+            <div id="SkillsJs" class="JsPage">
+                <span class="PageContent">
+                    <h1 class="PageTitle">Skills.</h1>
+                    <p><span class="bold">JavaScript / CSS / HTML</span> — 2018.04. ~</p>
+                    <p><span class="bold">Visual Basic .NET</span> — 2019.09. ~</p>
+                    <p><span class="bold">C# .NET</span> — 2019.09. ~</p>
+                    <p><span class="bold">Python</span> — 2019.11. ~</p>
+                    <p><span class="bold">PHP</span> — 2019.12. ~</p>
+                    <p><span class="bold">Swift</span> — 2020.05. ~</p>
+                    <p><span class="bold">SwiftUI</span> — 2020.10. ~</p>
+                    <p><span class="bold">Kotlin</span> — 2022.06. ~</p>
+                </span>
+            </div>
             <div id="MadeByJs" class="JsPage">
                 <span class="PageContent">
                     <h1 class="PageTitle">Made By Js.</h1>
@@ -510,6 +523,16 @@
                     </span>
                 </div>
             </div>
+            <div id="ProfilesJs" class="JsPage">
+                <span class="PageContent">
+                    <h1 class="PageTitle">Profiles.</h1>
+                    <a href="https://github.com/hellojsna" target="_blank">GitHub</a>
+                    <a href="https://todon.jsna.dev/@hellojsna" target="_blank">Mastodon</a>
+                    <a href="https://pixel.jsna.dev/hello.jsna" target="_blank">Pixelfed</a>
+                    <a href="https://t.me/hellojsna" target="_blank">Telegram</a>
+                    <a href="PRIVACY">Email</a>
+                </span>
+            </div>
         </span>
     </div>
     <div id="JsAppDetailView">
@@ -547,7 +570,7 @@
             const maxBlur = 20;
             // innerHeight 대신 JsPageContainer의 높이를 사용하여 스크롤 위치에 따라 블러 효과를 조정합니다.
             // containerHeight부터 containerHeight + 200px 사이에서 블러 효과를 적용합니다.
-            const containerHeight = JsPageContainer.offsetHeight;
+            const containerHeight = window.innerHeight;
             const containerBlurHeight = containerHeight * 0.35;
             if (scrollY > containerBlurHeight) {
                 const ratio = Math.min((scrollY - containerBlurHeight) / 200, 1);
