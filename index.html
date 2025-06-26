@@ -132,15 +132,19 @@
             align-items: center;
         }
 
-        #JsAppLibrary {
+        .JsIconList {
             display: flex;
             flex-wrap: wrap;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             width: 100%;
             max-width: 800px;
             margin-top: 20px;
+            background-color: var(--ListBackground);
+            padding: 2rem 1rem;
+            box-sizing: border-box;
+            border-radius: 1rem;
         }
 
         #JsAppLibrary>h2 {
@@ -179,8 +183,7 @@
 
         #JsAppLibrary .JsAppItem:hover {
             transform: scale(1.1);
-            filter: brightness(1.1);
-            filter: drop-shadow(0 0 5px var(--ListBackground));
+            filter: brightness(1.1) drop-shadow(0 0 5px var(--ListBackground));
         }
 
         #JsAppLibrary .JsAppItem p {
@@ -210,6 +213,7 @@
             align-items: center;
             z-index: 5678;
         }
+
         #JsAppDetailBackground {
             position: absolute;
             width: 100%;
@@ -221,10 +225,12 @@
             transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
             cursor: pointer
         }
+
         #JsAppDetailBackground.show {
             opacity: 1;
         }
-        #JsAppDetailView > #JsAppDetailContent {
+
+        #JsAppDetailView>#JsAppDetailContent {
             width: 90%;
             min-width: 50%;
             max-width: 600px;
@@ -241,7 +247,9 @@
             opacity: 0;
             transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        #JsAppDetailView.show > #JsAppDetailContent, #JsAppDetailView.show > #JsAppDetailControlContainer {
+
+        #JsAppDetailView.show>#JsAppDetailContent,
+        #JsAppDetailView.show>#JsAppDetailControlContainer {
             transform: scale(1);
             opacity: 1;
         }
@@ -330,6 +338,22 @@
         #JsAppDetailControlContainer button:hover {
             background-color: var(--PrimaryText);
             color: var(--PrimaryBackground);
+        }
+
+        #JsProfileLinks {
+            justify-content: space-around;
+        }
+        #JsProfileLinks a {
+            display: inline-block;
+            margin: 0.75rem;
+            border-radius: 0.5rem;
+            line-height: 0;
+            overflow: hidden;
+        }
+
+        #JsProfileLinks picture {
+            height: 3rem;
+            object-fit: cover;
         }
 
         @keyframes HelloJsTitle {
@@ -435,42 +459,44 @@
                     <h1 class="PageTitle">Made By Js.</h1>
                     <p>아이콘을 눌러 자세한 정보를 확인하실 수 있습니다.</p>
                 </span>
-                <div id="JsAppLibrary">
+                <div id="JsAppLibrary" class="JsIconList">
                     <span>
                         <button id="JsAppItem-ProjectPeri" class="JsAppItem">
                             <picture>
-                                <source srcset="/resources/images/ProjectPeriIcon-Dark.png"
+                                <source srcset="/resources/images/AppIcon/ProjectPeriIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/ProjectPeriIcon-Default.png" alt="Project Peri" />
+                                <img src="/resources/images/AppIcon/ProjectPeriIcon-Default.png" alt="Project Peri" />
                             </picture>
                             <p class="JsAppTitle">Project Peri</p>
-                            <a class="JsAppLink" href="https://archive.jsna.dev/projectperi" target="_blank">Js Archive</a>
+                            <a class="JsAppLink" href="https://archive.jsna.dev/projectperi" target="_blank">Js
+                                Archive</a>
                             <p class="JsAppDescription">2019년 임진초등학교 소프트웨어 영재학급 산출물.<br>스마트폰으로 제어 가능한 미세먼지 측정 및 공기청정기
                                 장치.</p>
                         </button>
                         <button id="JsAppItem-StorageManager" class="JsAppItem">
                             <picture>
-                                <source srcset="/resources/images/StorageManagerIcon-Dark.png"
+                                <source srcset="/resources/images/AppIcon/StorageManagerIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/StorageManagerIcon-Default.png" alt="StorageManager" />
+                                <img src="/resources/images/AppIcon/StorageManagerIcon-Default.png"
+                                    alt="StorageManager" />
                             </picture>
                             <p class="JsAppTitle">StorageManager</p>
                             <p class="JsAppDescription">목록으로 정리해 한 눈에 보는 창고 상태 관리 앱.</p>
                         </button>
                         <button id="JsAppItem-SmallCamera" class="JsAppItem">
                             <picture>
-                                <source srcset="/resources/images/NoIcon-Dark.png"
+                                <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/NoIcon-Default.png" alt="작은 카메라" />
+                                <img src="/resources/images/AppIcon/NoIcon-Default.png" alt="작은 카메라" />
                             </picture>
                             <p class="JsAppTitle">작은 카메라</p>
                             <p class="JsAppDescription">사진의 화질을 약간 낮춰 파일 용량을 EBS 온라인 클래스 업로드 제한에 맞게 조절해주는 앱.</p>
                         </button>
                         <button id="JsAppItem-TodayLunch" class="JsAppItem">
                             <picture>
-                                <source srcset="/resources/images/TodayLunchIcon-Dark.png"
+                                <source srcset="/resources/images/AppIcon/TodayLunchIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/TodayLunchIcon-Default.png" alt="TodayLunch" />
+                                <img src="/resources/images/AppIcon/TodayLunchIcon-Default.png" alt="TodayLunch" />
                             </picture>
                             <p class="JsAppTitle">TodayLunch</p>
                             <a class="JsAppLink" href="https://apps.apple.com/kr/app/todaylunch/id6443977069"
@@ -480,20 +506,19 @@
                         </button>
                         <button id="JsAppItem-TrainNet" class="JsAppItem">
                             <picture>
-                                <source srcset="/resources/images/NoIcon-Dark.png"
+                                <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/NoIcon-Default.png" alt="TrainNet" />
+                                <img src="/resources/images/AppIcon/NoIcon-Default.png" alt="TrainNet" />
                             </picture>
                             <p class="JsAppTitle">TrainNet</p>
-                            <a class="JsAppLink" href="https://trainnet.kr"
-                                target="_blank">TrainNet</a>
+                            <a class="JsAppLink" href="https://trainnet.kr" target="_blank">TrainNet</a>
                             <p class="JsAppDescription">모두를 위한 철도 플랫폼 - TrainNet<br>트레인넷은 단순한 지하철 노선도가 아닙니다.</p>
                         </button>
                         <button id="JsAppItem-Station" class="JsAppItem">
                             <picture>
-                                <source srcset="/resources/images/StationIcon-Dark.png"
+                                <source srcset="/resources/images/AppIcon/StationIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/StationIcon-Default.png" alt="역.한국" />
+                                <img src="/resources/images/AppIcon/StationIcon-Default.png" alt="역.한국" />
                             </picture>
                             <p class="JsAppTitle">역.한국</p>
                             <a class="JsAppLink" href="https://역.한국" target="_blank">역.한국</a>
@@ -502,18 +527,19 @@
                         </button>
                         <button id="JsAppItem-SwipeBalance" class="JsAppItem">
                             <picture>
-                                <source srcset="/resources/images/NoIcon-Dark.png"
+                                <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
                                 <img src="/resources/images/NoIcon-Default.png" alt="역.한국" />
                             </picture>
                             <p class="JsAppTitle">SwipeBalance</p>
                             <a class="JsAppLink" href="https://testflight.apple.com/join/xQWasXfj"
                                 target="_blank">TestFlight</a>
-                            <p class="JsAppDescription">선불 교통 카드 잔액 조회 앱 - SwipeBalance from TrainNet<br>iOS 18 이상 버전의 제어 센터에 제어 항목을 추가하면 앱에 더 빠른 접근이 가능합니다.</p>
+                            <p class="JsAppDescription">선불 교통 카드 잔액 조회 앱 - SwipeBalance from TrainNet<br>iOS 18 이상 버전의
+                                제어 센터에 제어 항목을 추가하면 앱에 더 빠른 접근이 가능합니다.</p>
                         </button>
                         <button id="JsAppItem-InfoBoard" class="JsAppItem">
                             <picture>
-                                <source srcset="/resources/images/NoIcon-Dark.png"
+                                <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
                                 <img src="/resources/images/NoIcon-Default.png" alt="InfoBoard" />
                             </picture>
@@ -526,12 +552,53 @@
             <div id="ProfilesJs" class="JsPage">
                 <span class="PageContent">
                     <h1 class="PageTitle">Profiles.</h1>
-                    <a href="https://github.com/hellojsna" target="_blank">GitHub</a>
-                    <a href="https://todon.jsna.dev/@hellojsna" target="_blank">Mastodon</a>
-                    <a href="https://pixel.jsna.dev/hello.jsna" target="_blank">Pixelfed</a>
-                    <a href="https://t.me/hellojsna" target="_blank">Telegram</a>
-                    <a href="PRIVACY">Email</a>
+                    <p>프로필 링크를 클릭하면 해당 프로필로 이동합니다.</p>
                 </span>
+
+                <div id="JsProfileLinks" class="JsIconList">
+                    <a href="https://github.com/hellojsna" target="_blank">
+                        <picture>
+                            <source srcset="/resources/images/ProfileLinks/Button-GitHub-Dark.png"
+                                media="(prefers-color-scheme: dark)" />
+                            <img src="/resources/images/ProfileLinks/Button-GitHub-Default.png" alt="GitHub" />
+                        </picture>
+                    </a>
+                    <a href="https://todon.jsna.dev/@hellojsna" target="_blank">
+                        <picture>
+                            <source srcset="/resources/images/ProfileLinks/Button-Todon-Dark.png"
+                                media="(prefers-color-scheme: dark)" />
+                            <img src="/resources/images/ProfileLinks/Button-Todon-Default.png" alt="Mastodon" />
+                        </picture>
+                    </a>
+                    <a href="https://pixel.jsna.dev/hello.jsna" target="_blank">
+                        <picture>
+                            <source srcset="/resources/images/ProfileLinks/Button-Pixel-Dark.png"
+                                media="(prefers-color-scheme: dark)" />
+                            <img src="/resources/images/ProfileLinks/Button-Pixel-Default.png" alt="Pixelfed" />
+                        </picture>
+                    </a>
+                    <a href="https://t.me/hellojsna" target="_blank">
+                        <picture>
+                            <source srcset="/resources/images/ProfileLinks/Button-Telegram-Dark.png"
+                                media="(prefers-color-scheme: dark)" />
+                            <img src="/resources/images/ProfileLinks/Button-Telegram-Default.png" alt="Telegram" />
+                        </picture>
+                    </a>
+                    <a href="mailto:open-durable-blend@duck.com">
+                        <picture>
+                            <source srcset="/resources/images/ProfileLinks/Button-Email-Dark.png"
+                                media="(prefers-color-scheme: dark)" />
+                            <img src="/resources/images/ProfileLinks/Button-Email-Default.png" alt="Email" />
+                        </picture>
+                    </a>
+                    <a href="https://coff.ee/HelloJsNa" target="_blank">
+                        <picture>
+                            <source srcset="/resources/images/ProfileLinks/Button-Coffee-Dark.png"
+                                media="(prefers-color-scheme: dark)" />
+                            <img src="/resources/images/ProfileLinks/Button-Coffee-Default.png" alt="Coffee" />
+                        </picture>
+                    </a>
+                </div>
             </div>
         </span>
     </div>
