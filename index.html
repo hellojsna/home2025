@@ -140,11 +140,21 @@
             align-items: center;
             width: 100%;
             max-width: 800px;
-            margin-top: 20px;
             background-color: var(--ListBackground);
-            padding: 2rem 1rem;
+            padding: 5%;
             box-sizing: border-box;
             border-radius: 1rem;
+        }
+
+        .JsIconList .hoverEffect {
+            transform: none;
+            filter: none;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .JsIconList .hoverEffect:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2) drop-shadow(0 0 5px var(--SecondaryBackground));
         }
 
         #JsAppLibrary>h2 {
@@ -171,7 +181,6 @@
             background: none;
             border: none;
             text-decoration: none;
-            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
             cursor: pointer;
         }
 
@@ -181,10 +190,6 @@
             object-fit: cover;
         }
 
-        #JsAppLibrary .JsAppItem:hover {
-            transform: scale(1.1);
-            filter: brightness(1.1) drop-shadow(0 0 5px var(--ListBackground));
-        }
 
         #JsAppLibrary .JsAppItem p {
             font-size: 1rem;
@@ -343,9 +348,10 @@
         #JsProfileLinks {
             justify-content: space-around;
         }
+
         #JsProfileLinks a {
             display: inline-block;
-            margin: 0.75rem;
+            margin: 0.5rem;
             border-radius: 0.5rem;
             line-height: 0;
             overflow: hidden;
@@ -431,16 +437,6 @@
                     <p>iOS 앱 개발자 나지성입니다.</p>
                 </span>
             </div>
-            <div id="ExperienceJs" class="JsPage">
-                <span class="PageContent">
-                    <h1 class="PageTitle">Experiences.</h1>
-                    <p>2019 <span class="bold">임진초등학교 SW 영재학급 (주말반)</span> 수료</p>
-                    <p>2019 SW영재교육 산출물 경진대회 참가: <span class="bold">Project Peri</span></p>
-                    <p>2020 덕이중학교 <span class="bold">내 친구 아두이노</span> 동아리 부장</p>
-                    <p>2021 경기꿈의학교(현 경기공유학교) <span class="bold">나도 인공지능 개발자</span> 차장</p>
-                    <p>2024 가좌고등학교 <span class="bold">데브큐스(프로그래밍)</span> 동아리 부장</p>
-                </span>
-            </div>
             <div id="SkillsJs" class="JsPage">
                 <span class="PageContent">
                     <h1 class="PageTitle">Skills.</h1>
@@ -454,6 +450,16 @@
                     <p><span class="bold">Kotlin</span> — 2022.06. ~</p>
                 </span>
             </div>
+            <div id="ExperienceJs" class="JsPage">
+                <span class="PageContent">
+                    <h1 class="PageTitle">Experiences.</h1>
+                    <p>2019 <span class="bold">임진초등학교 SW 영재학급 (주말반)</span> 수료</p>
+                    <p>2019 <span class="bold">SW영재교육 산출물 경진대회</span> 참가</p>
+                    <p>2020 덕이중학교 <span class="bold">내 친구 아두이노</span> 동아리 부장</p>
+                    <p>2021 경기꿈의학교(현 경기공유학교) <span class="bold">나도 인공지능 개발자</span> 차장</p>
+                    <p>2024 가좌고등학교 <span class="bold">데브큐스(프로그래밍)</span> 동아리 부장</p>
+                </span>
+            </div>
             <div id="MadeByJs" class="JsPage">
                 <span class="PageContent">
                     <h1 class="PageTitle">Made By Js.</h1>
@@ -461,19 +467,17 @@
                 </span>
                 <div id="JsAppLibrary" class="JsIconList">
                     <span>
-                        <button id="JsAppItem-ProjectPeri" class="JsAppItem">
+                        <button id="JsAppItem-ProjectPeri" class="JsAppItem hoverEffect">
                             <picture>
                                 <source srcset="/resources/images/AppIcon/ProjectPeriIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
                                 <img src="/resources/images/AppIcon/ProjectPeriIcon-Default.png" alt="Project Peri" />
                             </picture>
                             <p class="JsAppTitle">Project Peri</p>
-                            <a class="JsAppLink" href="https://archive.jsna.dev/projectperi" target="_blank">Js
-                                Archive</a>
-                            <p class="JsAppDescription">2019년 임진초등학교 소프트웨어 영재학급 산출물.<br>스마트폰으로 제어 가능한 미세먼지 측정 및 공기청정기
-                                장치.</p>
+                            <a class="JsAppLink" href="https://archive.jsna.dev/projectperi" target="_blank">Js Archive</a>
+                            <p class="JsAppDescription">2019년 임진초등학교 소프트웨어 영재학급 산출물.<br>스마트폰으로 제어 가능한 미세먼지 측정 및 공기청정기 장치.</p>
                         </button>
-                        <button id="JsAppItem-StorageManager" class="JsAppItem">
+                        <button id="JsAppItem-StorageManager" class="JsAppItem hoverEffect">
                             <picture>
                                 <source srcset="/resources/images/AppIcon/StorageManagerIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
@@ -483,7 +487,7 @@
                             <p class="JsAppTitle">StorageManager</p>
                             <p class="JsAppDescription">목록으로 정리해 한 눈에 보는 창고 상태 관리 앱.</p>
                         </button>
-                        <button id="JsAppItem-SmallCamera" class="JsAppItem">
+                        <button id="JsAppItem-SmallCamera" class="JsAppItem hoverEffect">
                             <picture>
                                 <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
@@ -492,7 +496,7 @@
                             <p class="JsAppTitle">작은 카메라</p>
                             <p class="JsAppDescription">사진의 화질을 약간 낮춰 파일 용량을 EBS 온라인 클래스 업로드 제한에 맞게 조절해주는 앱.</p>
                         </button>
-                        <button id="JsAppItem-TodayLunch" class="JsAppItem">
+                        <button id="JsAppItem-TodayLunch" class="JsAppItem hoverEffect">
                             <picture>
                                 <source srcset="/resources/images/AppIcon/TodayLunchIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
@@ -504,7 +508,7 @@
                             <p class="JsAppDescription">손목에서 보는 오늘 급식 메뉴 - Apple Watch를 지원하는 급식 앱.<br>전국 초등학교, 중학교, 고등학교
                                 및 일본 일부 지역 학교의 급식 메뉴를 간편하게 확인하고, 공유할 수 있습니다.</p>
                         </button>
-                        <button id="JsAppItem-TrainNet" class="JsAppItem">
+                        <button id="JsAppItem-TrainNet" class="JsAppItem hoverEffect">
                             <picture>
                                 <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
@@ -514,7 +518,7 @@
                             <a class="JsAppLink" href="https://trainnet.kr" target="_blank">TrainNet</a>
                             <p class="JsAppDescription">모두를 위한 철도 플랫폼 - TrainNet<br>트레인넷은 단순한 지하철 노선도가 아닙니다.</p>
                         </button>
-                        <button id="JsAppItem-Station" class="JsAppItem">
+                        <button id="JsAppItem-Station" class="JsAppItem hoverEffect">
                             <picture>
                                 <source srcset="/resources/images/AppIcon/StationIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
@@ -525,11 +529,11 @@
                             <p class="JsAppDescription">가장 빠른 지하철역 정보 검색 서비스 - 역.한국 from TrainNet<br>복잡한 주소 대신 <a
                                     href="https://역.한국/김포공항5">역.한국/김포공항5</a> 처럼 짧은 링크로 공유할 수 있습니다.</p>
                         </button>
-                        <button id="JsAppItem-SwipeBalance" class="JsAppItem">
+                        <button id="JsAppItem-SwipeBalance" class="JsAppItem hoverEffect">
                             <picture>
                                 <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/NoIcon-Default.png" alt="역.한국" />
+                                <img src="/resources/images/AppIcon/NoIcon-Default.png" alt="역.한국" />
                             </picture>
                             <p class="JsAppTitle">SwipeBalance</p>
                             <a class="JsAppLink" href="https://testflight.apple.com/join/xQWasXfj"
@@ -537,11 +541,11 @@
                             <p class="JsAppDescription">선불 교통 카드 잔액 조회 앱 - SwipeBalance from TrainNet<br>iOS 18 이상 버전의
                                 제어 센터에 제어 항목을 추가하면 앱에 더 빠른 접근이 가능합니다.</p>
                         </button>
-                        <button id="JsAppItem-InfoBoard" class="JsAppItem">
+                        <button id="JsAppItem-InfoBoard" class="JsAppItem hoverEffect">
                             <picture>
                                 <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/NoIcon-Default.png" alt="InfoBoard" />
+                                <img src="/resources/images/AppIcon/NoIcon-Default.png" alt="InfoBoard" />
                             </picture>
                             <p class="JsAppTitle">InfoBoard</p>
                             <p class="JsAppDescription">학교 현관 인포 디스플레이 프로젝트</p>
@@ -556,42 +560,42 @@
                 </span>
 
                 <div id="JsProfileLinks" class="JsIconList">
-                    <a href="https://github.com/hellojsna" target="_blank">
+                    <a class="hoverEffect" href="https://github.com/hellojsna" target="_blank">
                         <picture>
                             <source srcset="/resources/images/ProfileLinks/Button-GitHub-Dark.png"
                                 media="(prefers-color-scheme: dark)" />
                             <img src="/resources/images/ProfileLinks/Button-GitHub-Default.png" alt="GitHub" />
                         </picture>
                     </a>
-                    <a href="https://todon.jsna.dev/@hellojsna" target="_blank">
+                    <a class="hoverEffect" href="https://todon.jsna.dev/@hellojsna" target="_blank">
                         <picture>
                             <source srcset="/resources/images/ProfileLinks/Button-Todon-Dark.png"
                                 media="(prefers-color-scheme: dark)" />
                             <img src="/resources/images/ProfileLinks/Button-Todon-Default.png" alt="Mastodon" />
                         </picture>
                     </a>
-                    <a href="https://pixel.jsna.dev/hello.jsna" target="_blank">
+                    <a class="hoverEffect" href="https://pixel.jsna.dev/hello.jsna" target="_blank">
                         <picture>
                             <source srcset="/resources/images/ProfileLinks/Button-Pixel-Dark.png"
                                 media="(prefers-color-scheme: dark)" />
                             <img src="/resources/images/ProfileLinks/Button-Pixel-Default.png" alt="Pixelfed" />
                         </picture>
                     </a>
-                    <a href="https://t.me/hellojsna" target="_blank">
+                    <a class="hoverEffect" href="https://t.me/hellojsna" target="_blank">
                         <picture>
                             <source srcset="/resources/images/ProfileLinks/Button-Telegram-Dark.png"
                                 media="(prefers-color-scheme: dark)" />
                             <img src="/resources/images/ProfileLinks/Button-Telegram-Default.png" alt="Telegram" />
                         </picture>
                     </a>
-                    <a href="mailto:open-durable-blend@duck.com">
+                    <a class="hoverEffect" href="mailto:open-durable-blend@duck.com">
                         <picture>
                             <source srcset="/resources/images/ProfileLinks/Button-Email-Dark.png"
                                 media="(prefers-color-scheme: dark)" />
                             <img src="/resources/images/ProfileLinks/Button-Email-Default.png" alt="Email" />
                         </picture>
                     </a>
-                    <a href="https://coff.ee/HelloJsNa" target="_blank">
+                    <a class="hoverEffect" href="https://coff.ee/HelloJsNa" target="_blank">
                         <picture>
                             <source srcset="/resources/images/ProfileLinks/Button-Coffee-Dark.png"
                                 media="(prefers-color-scheme: dark)" />

@@ -5,6 +5,8 @@ body {
   height: 100%;
   background-color: var(--PrimaryBackground);
   color: var(--PrimaryText);
+  user-select: none;
+  -webkit-user-select: none;
 }
 picture {
   width: 100%;
@@ -29,6 +31,7 @@ p {
   font-family: "SCdream", sans-serif;
   font-weight: 300;
   line-height: 1.5;
+  word-break: auto-phrase;
 }
 p > span.bold {
   font-weight: 700;
