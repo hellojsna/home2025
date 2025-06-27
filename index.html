@@ -23,7 +23,6 @@
 
             color: var(--PrimaryText);
             font-family: "SeoulAlrim", sans-serif;
-            padding: 20px;
         }
         .JsPage.fixed {
             position: fixed;
@@ -61,8 +60,10 @@
             margin-top: calc(100vh - 6rem);
             min-height: 100vh;
             z-index: 1;
-            backdrop-filter: saturate(180%);
-            transition: background-color 0.5s ease-in-out;
+        }
+        #MainJs .JsPage {
+            padding: 5rem 1rem 0 1rem;
+            box-sizing: border-box;
         }
 
         #JsPageContainer {
@@ -72,7 +73,12 @@
             align-items: center;
             width: 100%;
             height: 100%;
-            box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.2);
+            /* box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.2); */
+            backdrop-filter: blur(10px) saturate(180%);
+            border-radius: 25px 25px 0 0;
+            transition: background-color 0.5s ease-in-out;
+            padding: 5vh 0;
+            box-sizing: border-box;
         }
         #JsPageContainer #JsPages {
             display: flex;
@@ -368,7 +374,28 @@
             border-radius: 999px;
             padding: 0.5rem 1rem;
         }
-        #JsMenuBarBlur {
+        #JsMenuBar a {
+            width: 100%;
+            text-decoration: none;
+            color: var(--PrimaryText);
+            padding: 0 0.5rem;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #JsMenuBar a > svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--PrimaryText);
+            transition: color 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+        #JsMenuBar a > span {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .GradientBlurView {
             position: absolute;
             top: 0;
             left: 0;
@@ -377,6 +404,23 @@
             z-index: -1;
             margin: 0 auto;
             pointer-events: none;
+        }
+        .GradientBlurView > div {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+        }
+        .GradientBlurView > div > div {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            -webkit-perspective: 1000;
+            -webkit-transform: translate3d(0,0,0);
+            -webkit-transform: translateZ(0);
+            transform: translate3d(0, 0, 0);
+            transform: translateZ(0);
+            will-change: backdrop-filter;
         }
 
         #JsFooter {
@@ -398,6 +442,22 @@
             margin-bottom: 1rem;
         }
         
+        #JsFooter p {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        #JsFooter #JsFontLicenseButton {
+            font-size: 1rem;
+            line-height: 1.5;
+            border: none;
+            background: none;
+            color: var(--blue);
+        }
+        #JsFooter #JsFontLicenseContent {
+            display: none;
+        }
+
         @keyframes HelloJsTitle {
             0% {
                 transform: translateY(100%);
@@ -456,7 +516,7 @@
     <div id="HelloJs" class="JsPage fixed">
         <div id="HelloVideo">
             <video id="HelloVideoContent" autobuffer autoplay muted loop playsinline>
-                <source src="./resources/videos/Hello_1080_H264.mov" type="video/mp4">
+                <source src="./resources/videos/Hello_1080_30_H264.mp4" type="video/mp4">
             </video>
         </div>
         <div id="HelloContent">
@@ -466,14 +526,42 @@
     </div>
     <div id="MainJs">
             <div id="JsMenuBarContainer">
-                <div id="JsMenuBarBlur"></div>
+                <div id="JsMenuBarBlur" class="GradientBlurView"></div>
                 <span id="JsMenuBar">
-                <a href="/"><h1>Js Na</h1></a>
-                <div id="JsMenuBarLinks">
-                    <a href="/">Home</a>
-                    <a href="/projects">Projects</a>
-                    <a href="/contact">Contact</a>
-                </div>
+                    <a href="#AboutJs">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                        </svg>
+                        <span>About</span>
+                    </a>
+                    <a href="#SkillsJs">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5 5 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334" />
+                        </svg>
+                        <span>Skills</span>
+                    </a>
+                    <a href="#ExperienceJs">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
+                            <path
+                                d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
+                        </svg>
+                        <span>Experiences</span>
+                    </a>
+                    <a href="#MadeByJs">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-collection-fill"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3m2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1" />
+                        </svg>
+                        <span>Projects</span>
+                    </a>
                 </span>
             </div>
         <div id="JsPageContainer">
@@ -510,7 +598,7 @@
                 </div>
                 <div id="MadeByJs" class="JsPage">
                     <span class="PageContent">
-                        <h1 class="PageTitle">Made By Js.</h1>
+                        <h1 class="PageTitle">Projects.</h1>
                         <p>아이콘을 눌러 자세한 정보를 확인하실 수 있습니다.</p>
                     </span>
                     <div id="JsAppLibrary" class="JsIconList">
@@ -677,33 +765,38 @@
     <footer id="JsFooter">
         <h1>Js Na</h1>
         <p>Made by<a href="https://jsna.dev/"> Js Na </a>with ❤️</p>
-        <p>Copyright © 2024 Js Na, All rights reserved.</p>
+        <p>Copyright © 2025 Js Na, All rights reserved.</p>
+        <button id="JsFontLicenseButton">서체 라이선스 ></button>
+        <div id="JsFontLicenseContent">
+            <picture>
+                <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
+                    media="(prefers-color-scheme: dark)" />
+                <img src="/resources/images/AppIcon/NoIcon-Default.png" alt="InfoBoard" />
+            </picture>
+            <p class="JsAppTitle">서체 라이선스</p>
+            <span class="JsAppDescription">
+                <p>이 페이지는 아래 서체들을 사용하고 있습니다.</p>
+                <p class="SeoulAlrim"><a href="https://www.seoul.go.kr/seoul/font.do" target="_blank">서울특별시에서 제공하는</a> 서울알림체</p>
+                <p class="SCDream"><a href="https://s-core.co.kr/company/font/" target="_blank">에스코어에서 제공하는</a> 에스코어드림</p>
+            </span>
+        </div>
     </footer>
     <script src="/resources/scripts/root.js"></script>
     <script>
+        const helloJs = eById('HelloJs');
+        const JsPageContainer = eById('JsPageContainer');
+        const HelloVideo = eById('HelloVideo');
+        const HelloVideoContent = eById('HelloVideoContent');
+
+        const JsMenuBarContainer = eById('JsMenuBarContainer');
+        const JsMenuBarBlur = eById('JsMenuBarBlur');
+
+        const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+
         window.addEventListener('scroll', function () {
-            const helloJs = eById('HelloJs');
-            const JsPageContainer = eById('JsPageContainer');
-            const HelloVideo = eById('HelloVideo');
-            const HelloVideoContent = eById('HelloVideoContent');
-
-            const JsMenuBarContainer = eById('JsMenuBarContainer');
-            const JsMenuBarBlur = eById('JsMenuBarBlur');
-
             const scrollY = window.scrollY;
             const maxBlur = 20;
-            // innerHeight 대신 JsPageContainer의 높이를 사용하여 스크롤 위치에 따라 블러 효과를 조정합니다.
-            // containerHeight부터 containerHeight + 200px 사이에서 블러 효과를 적용합니다.
             const containerHeight = window.innerHeight;
-            const containerBlurHeight = containerHeight * 0.35;
-            if (scrollY > containerBlurHeight && scrollY < containerHeight * 0.95) {
-                const ratio = Math.min((scrollY - containerBlurHeight) / 200, 1);
-                const blurValue = maxBlur * ratio;
-                helloJs.style.filter = `blur(${blurValue}px)`;
-            } else {
-                helloJs.style.filter = 'blur(0px)';
-            }
-            // JsPageContainer is scrolled into top of viewport, change background color
             if (scrollY >= containerHeight * 0.95) {
                 JsPageContainer.style.backgroundColor = 'var(--SecondaryBackground)';
                 HelloVideoContent.pause();
@@ -713,17 +806,41 @@
                 JsPageContainer.style.backgroundColor = 'var(--BlurBackground)';
             }
             if (scrollY > containerHeight) {
-                if (JsMenuBarBlur.innerHTML === '') {
-                    drawGradientBlur(JsMenuBarContainer, JsMenuBarBlur);
-                }
                 JsMenuBarBlur.style.display = 'block';
+                HelloVideo.style.display = 'none';
             } else {
                 JsMenuBarBlur.style.display = 'none';
+                HelloVideo.style.display = 'flex';
             }
         });
+
         const JsAppDetailCloseButton = eById('JsAppDetailCloseButton');
         const JsAppDetailView = eById('JsAppDetailView');
         const JsAppDetailBackground = eById('JsAppDetailBackground');
+        const JsAppItems = document.querySelectorAll('.JsAppItem');
+
+        function showJsAppDetailView(titleElem, descriptionElem, iconElem, linkElems) {
+            eById('JsAppDetailTitle').innerText = titleElem.innerText;
+            eById('JsAppDetailDescription').innerHTML = descriptionElem.innerHTML;
+            eById('JsAppDetailIconContainer').innerHTML = iconElem.outerHTML;
+            const JsAppDetailLinkContainer = eById('JsAppDetailLinkContainer');
+            JsAppDetailLinkContainer.innerHTML = '';
+            if (linkElems) {
+                for (let i = 0; i < linkElems.length; i++) {
+                    const a = document.createElement('a');
+                    a.href = linkElems[i].href;
+                    a.target = '_blank';
+                    a.innerText = linkElems[i].innerText;
+                    JsAppDetailLinkContainer.appendChild(a);
+                }
+            }
+            JsAppDetailView.style.display = 'flex';
+            JsAppDetailBackground.style.display = 'block';
+            setTimeout(function () {
+                JsAppDetailView.classList.add('show');
+                JsAppDetailBackground.classList.add('show');
+            }, 10);
+        }
         function hideJsAppDetailView() {
             JsAppDetailView.classList.remove('show');
             JsAppDetailBackground.classList.remove('show');
@@ -738,78 +855,73 @@
         JsAppDetailCloseButton.addEventListener('click', function () {
             hideJsAppDetailView();
         });
-        const JsAppItems = document.querySelectorAll('.JsAppItem');
         JsAppItems.forEach(item => {
             item.addEventListener('click', function () {
-                eById('JsAppDetailTitle').innerText = item.querySelector('.JsAppTitle').innerText;
-                eById('JsAppDetailDescription').innerHTML = item.querySelector('.JsAppDescription').innerHTML;
-                eById('JsAppDetailIconContainer').innerHTML = item.querySelector('picture').outerHTML;
-                const link = item.querySelectorAll('.JsAppLink');
-                const JsAppDetailLinkContainer = eById('JsAppDetailLinkContainer');
-                JsAppDetailLinkContainer.innerHTML = ''; // 기존 링크 제거
-                if (link) {
-                    for (let i = 0; i < link.length; i++) {
-                        // duplicate element
-                        const a = document.createElement('a');
-                        a.href = link[i].href;
-                        a.target = '_blank';
-                        a.innerText = link[i].innerText;
-                        JsAppDetailLinkContainer.appendChild(a);
-                    }
-                }
-                JsAppDetailView.style.display = 'flex';
-                JsAppDetailBackground.style.display = 'block';
-                setTimeout(function () {
-                    JsAppDetailView.classList.add('show');
-                    JsAppDetailBackground.classList.add('show');
-                }, 10);
+                showJsAppDetailView(
+                    item.querySelector('.JsAppTitle'),
+                    item.querySelector('.JsAppDescription'),
+                    item.querySelector('picture'),
+                    item.querySelectorAll('.JsAppLink')
+                );
             });
         });
+        
+        const JsFontLicenseButton = eById('JsFontLicenseButton');
+        const JsFontLicenseContent = eById('JsFontLicenseContent');
+        JsFontLicenseButton.addEventListener('click', function () {
+            showJsAppDetailView(
+                JsFontLicenseContent.querySelector('.JsAppTitle'),
+                JsFontLicenseContent.querySelector('.JsAppDescription'),
+                JsFontLicenseContent.querySelector('picture'),
+                []
+            );
+        });
+
         function calcOptimalGradientStep() {
-            const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-            return Math.floor(0.15 * remInPx);
+            return Math.floor(0.3 * remInPx);
         }
         function drawGradientBlur(targetElem, destElem, amount = 30, position = "top") {
-            const elementHeight = targetElem.offsetHeight * 2;
+            const elementHeight = Math.floor(targetElem.offsetHeight * 1.25);
             const stepHeightPx = calcOptimalGradientStep();
             const steps = Math.max(1, Math.floor(elementHeight / stepHeightPx));
             const fragment = document.createDocumentFragment();
+            const d = 2 * amount / (steps * (steps + 1));
 
-            // Calculate blur increment d so that sum of blurs = amount, first blur = 2px
-            let d = 0;
-            if (steps > 1) {
-                d = (amount - steps * 2) / (steps * (steps - 1) / 2);
-            }
-            // If only one step, just use the amount as the blur
-            for (let i = 0; i < steps; i++) {
-                const div = document.createElement('div');
-                const currentHeight = stepHeightPx * (i + 1);
-                div.style.position = 'absolute';
-                div.style.left = '0';
-                div.style.width = '100%';
-                div.style.height = `${currentHeight}px`;
-                if (position === 'top') {
-                    div.style.top = '0';
-                } else {
-                    div.style.bottom = '0';
-                }
-                // Blur: 2px + d * i
-                let blur = steps === 1 ? amount : 2 + d * i;
-                div.style.backdropFilter = `blur(${blur}px)`;
-                div.style.pointerEvents = 'none';
-                fragment.appendChild(div);
+            console.log(`Drawing gradient blur with ${steps} steps, each ${stepHeightPx}px.`);
+            for (let i = 1; i <= steps; i++) {
+                const stepDiv = document.createElement('div');
+
+                const currentHeight = i * stepHeightPx;
+
+                const blurValue = (steps - i + 1) * d;
+                stepDiv.setAttribute('style', `${position === 'top' ? 'top: 0;' : 'bottom: 0;'} height: ${currentHeight}px; backdrop-filter: blur(${blurValue}px); -webkit-backdrop-filter: blur(${blurValue}px);`);
+                stepDiv.style.pointerEvents = 'none';
+
+                fragment.appendChild(stepDiv);
             }
 
             const container = document.createElement('div');
-            container.style.position = 'absolute';
             container.style.top = position === 'top' ? '0' : 'auto';
             container.style.bottom = position === 'bottom' ? '0' : 'auto';
-            container.style.left = '0';
-            container.style.width = '100%';
             container.style.height = `${elementHeight}px`;
             container.appendChild(fragment);
+
             destElem.appendChild(container);
         }
+
+        function setMainMargin() {
+            const viewportHeight = window.innerHeight;
+            const mainJs = document.getElementById('MainJs');
+            mainJs.style.marginTop = `${viewportHeight - 6 * remInPx}px`;
+        }
+        window.addEventListener('resize', function () {
+            setMainMargin();
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            drawGradientBlur(JsMenuBarContainer, JsMenuBarBlur);
+            setMainMargin();
+        });
+    
     </script>
 </body>
 

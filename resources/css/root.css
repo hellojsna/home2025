@@ -8,27 +8,34 @@ body {
   user-select: none;
   -webkit-user-select: none;
   font-family: 'SeoulAlrim', sans-serif;
+  scroll-behavior: smooth;
 }
+
 picture {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
 }
+
 h1 {
   font-size: 2em;
 }
+
 a {
   text-decoration: none;
   color: var(--blue);
 }
+
 button {
   cursor: pointer;
 }
+
 a, button {
   font-family: "SeoulAlrim", sans-serif;
   font-weight: 700;
 }
+
 p {
   margin: 0;
   padding: 0;
@@ -40,6 +47,7 @@ p {
 p > span.bold {
   font-weight: 700;
 }
+
 :root {
   --PrimaryBackground: #f2f2f7;
   --SecondaryBackground: #ffffff;
@@ -130,25 +138,4 @@ p > span.bold {
   font-family: "SeoulAlrim";
   src: url("/resources/fonts/SeoulAlrim-Bold.woff2") format("woff2");
   font-weight: 700;
-}
-
-@font-face {
-  font-family: "SeoulNamsan";
-  src: url("/resources/fonts/SeoulNamsanL.woff2") format("woff2");
-  font-weight: 300;
-}
-@font-face {
-  font-family: "SeoulNamsan";
-  src: url("/resources/fonts/SeoulNamsanM.woff2") format("woff2");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "SeoulNamsan";
-  src: url("/resources/fonts/SeoulNamsanB.woff2") format("woff2");
-  font-weight: 700;
-}
-@font-face {
-  font-family: "SeoulNamsan";
-  src: url("/resources/fonts/SeoulNamsanEB.woff2") format("woff2");
-  font-weight: 800;
 }
