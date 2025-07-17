@@ -54,7 +54,7 @@ p > span.bold {
   --PrimaryText: #000000;
   --ListBackground: #f2f2f7;
   --blue: #007aff;
-  --BlurBackground: rgba(255, 255, 255, .7);
+  --BlurBackground: rgba(255, 255, 255, .4);
   --red: #ff3b30;
   --yellow: #ffcc00;
   --green: #34c759;
@@ -67,7 +67,7 @@ p > span.bold {
     --PrimaryText: #ffffff;
     --ListBackground: #2c2c2e;
     --blue: #0a84ff;
-    --BlurBackground: rgba(22, 22, 23, .7);
+    --BlurBackground: rgba(22, 22, 23, .4);
     --red: #ff453a;
     --yellow: #ffd60a;
     --green: #30d158;
@@ -76,66 +76,66 @@ p > span.bold {
 
 @font-face {
   font-family: "SCDream";
-  src: url("/resources/fonts/SCDream1.woff2") format("woff2");
+  src: url("../fonts/SCDream1.woff2") format("woff2");
   font-weight: 100;
 }
 
 @font-face {
   font-family: "SCDream";
-  src: url("/resources/fonts/SCDream2.woff2") format("woff2");
+  src: url("../fonts/SCDream2.woff2") format("woff2");
   font-weight: 200;
 }
 
 @font-face {
   font-family: "SCDream";
-  src: url("/resources/fonts/SCDream3.woff2") format("woff2");
+  src: url("../fonts/SCDream3.woff2") format("woff2");
   font-weight: 300;
 }
 
 @font-face {
   font-family: "SCDream";
-  src: url("/resources/fonts/SCDream4.woff2") format("woff2");
+  src: url("../fonts/SCDream4.woff2") format("woff2");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "SCDream";
-  src: url("/resources/fonts/SCDream5.woff2") format("woff2");
+  src: url("../fonts/SCDream5.woff2") format("woff2");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "SCDream";
-  src: url("/resources/fonts/SCDream6.woff2") format("woff2");
+  src: url("../fonts/SCDream6.woff2") format("woff2");
   font-weight: 600;
 }
 
 @font-face {
   font-family: "SCDream";
-  src: url("/resources/fonts/SCDream7.woff2") format("woff2");
+  src: url("../fonts/SCDream7.woff2") format("woff2");
   font-weight: 700;
 }
 
 @font-face {
   font-family: "SCDream";
-  src: url("/resources/fonts/SCDream8.woff2") format("woff2");
+  src: url("../fonts/SCDream8.woff2") format("woff2");
   font-weight: 800;
 }
 
 @font-face {
   font-family: "SCDream";
-  src: url("/resources/fonts/SCDream9.woff2") format("woff2");
+  src: url("../fonts/SCDream9.woff2") format("woff2");
   font-weight: 900;
 }
 
 @font-face {
   font-family: "SeoulAlrim";
-  src: url("/resources/fonts/SeoulAlrim-Medium.woff2") format("woff2");
+  src: url("../fonts/SeoulAlrim-Medium.woff2") format("woff2");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "SeoulAlrim";
-  src: url("/resources/fonts/SeoulAlrim-Bold.woff2") format("woff2");
+  src: url("../fonts/SeoulAlrim-Bold.woff2") format("woff2");
   font-weight: 700;
 }

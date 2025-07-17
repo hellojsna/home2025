@@ -6,527 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Js Na</title>
     <style>
-        @import url('/resources/css/reset.css');
-        @import url('/resources/css/root.css');
-        @import url('/resources/css/index.css');
-
-        .JsPage {
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            box-sizing: border-box;
-
-            color: var(--PrimaryText);
-            font-family: "SeoulAlrim", sans-serif;
-        }
-        .JsPage.fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--PrimaryBackground);
-        }
-        .JsPage .PageTitle {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--PrimaryText);
-            margin: 0.3rem 0;
-        }
-        .JsPage p {
-            font-size: 1rem;
-            color: var(--PrimaryText);
-            margin: 0.3rem 0;
-        }
-        .JsPage .PageContent {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        #MainJs {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-top: calc(100vh - 6rem);
-            min-height: 100vh;
-            z-index: 1;
-        }
-        #MainJs .JsPage {
-            padding: 5rem 1rem 0 1rem;
-            box-sizing: border-box;
-        }
-
-        #JsPageContainer {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            /* box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.2); */
-            backdrop-filter: blur(10px) saturate(180%);
-            border-radius: 25px 25px 0 0;
-            transition: background-color 0.5s ease-in-out;
-            padding: 5vh 0;
-            box-sizing: border-box;
-        }
-        #JsPageContainer #JsPages {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            width: fit-content;
-            min-width: 70vw;
-            height: 100%;
-        }
-
-        #HelloJs {
-            font-family: "SeoulAlrim", sans-serif;
-            font-weight: bold;
-        }
-        #HelloJs h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            color: var(--PrimaryText);
-            animation: HelloJsTitle 4s cubic-bezier(0.22, 1, 0.36, 1);
-            margin: 0;
-        }
-        #HelloJs h3 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--PrimaryText);
-            animation: HelloJsSubtitle 4s cubic-bezier(0.22, 1, 0.36, 1);
-            margin: 0;
-        }
-
-        #HelloJs>div {
-            width: 100%;
-            height: 100%;
-        }
-
-        #HelloVideo {
-            position: fixed;
-            padding: 1rem;
-            box-sizing: border-box;
-            border-radius: 20px;
-        }
-        #HelloVideo>video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-        }
-
-        #HelloContent {
-            position: absolute;
-            background-color: var(--BlurBackground);
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .JsIconList {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            max-width: 800px;
-            background-color: var(--ListBackground);
-            padding: 5%;
-            box-sizing: border-box;
-            border-radius: 1rem;
-        }
-        .JsIconList .hoverEffect {
-            transform: none;
-            filter: none;
-            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .JsIconList .hoverEffect:hover {
-            transform: scale(1.1);
-            filter: brightness(1.2) drop-shadow(0 0 5px var(--SecondaryBackground));
-        }
-
-        #JsAppLibrary>h2 {
-            margin: 1.5rem 0 0.5rem 0;
-        }
-        #JsAppLibrary>span {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-        #JsAppLibrary .JsAppItem {
-            width: 8rem;
-            height: 5rem;
-            margin: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--PrimaryText);
-            background: none;
-            border: none;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        #JsAppLibrary .JsAppItem picture {
-            width: 80%;
-            height: 80%;
-            object-fit: cover;
-        }
-        #JsAppLibrary .JsAppItem p {
-            font-size: 1rem;
-            margin-top: 0.2em;
-            text-align: center;
-            letter-spacing: -0.03em;
-        }
-        #JsAppLibrary .JsAppItem .JsAppLink {
-            display: none;
-        }
-        #JsAppLibrary .JsAppItem .JsAppDescription {
-            display: none;
-        }
-
-        #JsAppDetailView {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 5678;
-        }
-
-        #JsAppDetailBackground {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: none;
-            background-color: var(--BlurBackground);
-            backdrop-filter: blur(10px) saturate(180%);
-            opacity: 0;
-            transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-            cursor: pointer
-        }
-        #JsAppDetailBackground.show {
-            opacity: 1;
-        }
-
-        #JsAppDetailView>#JsAppDetailContent {
-            width: 90%;
-            min-width: 50%;
-            max-width: 600px;
-            background-color: var(--ListBackground);
-            border-radius: 1rem;
-            padding: 2rem;
-            box-sizing: border-box;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        #JsAppDetailView.show>#JsAppDetailContent,
-        #JsAppDetailView.show>#JsAppDetailControlContainer {
-            transform: scale(1);
-            opacity: 1;
-        }
-        #JsAppDetailContent picture {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-        }
-        #JsAppDetailContent #JsAppDetailTitle {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--PrimaryText);
-            margin: 0.25rem 0;
-        }
-        #JsAppDetailContent #JsAppDetailDescription {
-            width: 100%;
-            background-color: var(--SecondaryBackground);
-            font-size: 1rem;
-            color: var(--PrimaryText);
-            margin: 0.5rem 0;
-            padding: 1rem;
-            box-sizing: border-box;
-            border-radius: 0.5rem;
-        }
-
-        #JsAppDetailControlContainer {
-            width: 90%;
-            min-width: 50%;
-            max-width: 600px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 0.75rem;
-            box-sizing: border-box;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        #JsAppDetailLinkContainer {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            box-sizing: border-box;
-        }
-        #JsAppDetailLinkContainer a,
-        #JsAppDetailControlContainer button {
-            height: 2rem;
-            font-size: 1rem;
-            text-decoration: none;
-            color: var(--PrimaryText);
-            background-color: var(--BlurBackground);
-            box-shadow: 0 0px 2px var(--PrimaryText);
-            backdrop-filter: blur(10px) saturate(180%);
-            margin-right: 0.75rem;
-            padding: 1rem;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: none;
-            border-radius: 999px;
-            transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
-        }
-        #JsAppDetailControlContainer>#JsAppDetailCloseButton {
-            width: 2rem;
-            height: 2rem;
-            margin: 0;
-            padding: 0;
-        }
-        #JsAppDetailCloseButton>svg {
-            width: 100%;
-            height: 100%;
-            color: var(--red);
-            filter: drop-shadow(0 0 5px var(--red));
-        }
-        #JsAppDetailLinkContainer a:hover,
-        #JsAppDetailControlContainer button:hover {
-            background-color: var(--PrimaryText);
-            color: var(--PrimaryBackground);
-        }
-
-        #JsProfileLinks {
-            justify-content: space-around;
-        }
-        #JsProfileLinks a {
-            display: inline-block;
-            margin: 0.5rem;
-            border-radius: 0.5rem;
-            line-height: 0;
-            overflow: hidden;
-        }
-        #JsProfileLinks picture {
-            height: 3rem;
-            object-fit: cover;
-        }
-
-        #JsMenuBarContainer {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            height: 6rem;
-            text-align: center;
-            box-sizing: border-box;
-            z-index: 56789;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        #JsMenuBar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 80%;
-            min-width: 70vw;
-            background-color: var(--BlurBackground);
-            color: var(--PrimaryText);
-            box-shadow: 0 0px 2px var(--PrimaryText);
-            backdrop-filter: blur(10px) saturate(180%);
-            border-radius: 999px;
-            padding: 0.5rem 1rem;
-        }
-        #JsMenuBar a {
-            width: 100%;
-            text-decoration: none;
-            color: var(--PrimaryText);
-            padding: 0 0.5rem;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        #JsMenuBar a > svg {
-            width: 1.5rem;
-            height: 1.5rem;
-            color: var(--PrimaryText);
-            transition: color 0.3s ease-in-out, filter 0.3s ease-in-out;
-        }
-        #JsMenuBar a > span {
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        .GradientBlurView {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            margin: 0 auto;
-            pointer-events: none;
-        }
-        .GradientBlurView > div {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            pointer-events: none;
-        }
-        .GradientBlurView > div > div {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            -webkit-perspective: 1000;
-            -webkit-transform: translate3d(0,0,0);
-            -webkit-transform: translateZ(0);
-            transform: translate3d(0, 0, 0);
-            transform: translateZ(0);
-            will-change: backdrop-filter;
-        }
-
-        #JsFooter {
-            position: relative;
-            display: flex;
-            height: 10em;
-            padding: 2em;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-            text-align: center;
-            background-color: #434343;
-            color: #ffffffCD;
-        }
-        #JsFooter h1 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        #JsFooter p {
-            font-size: 1rem;
-            font-weight: 400;
-        }
-
-        #JsFooter #JsFontLicenseButton {
-            font-size: 1rem;
-            line-height: 1.5;
-            border: none;
-            background: none;
-            color: var(--blue);
-        }
-        #JsFooter #JsFontLicenseContent {
-            display: none;
-        }
-        .SeoulAlrim, .SeoulAlrim * {
-            font-family: 'SeoulAlrim', sans-serif !important;
-            font-weight: 500 !important;
-        }
-        .SCDream, .SCDream * {
-            font-family: 'SCDream', sans-serif !important;
-            font-weight: 500 !important;
-        }
-
-        @keyframes HelloJsTitle {
-            0% {
-                transform: translateY(100%);
-                filter: blur(8px);
-                opacity: 0;
-            }
-
-            60% {
-                transform: translateY(100%);
-                filter: blur(8px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateY(0);
-                filter: blur(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes HelloJsSubtitle {
-            0% {
-                transform: translateY(250%);
-                filter: blur(8px);
-                opacity: 0;
-            }
-
-            10% {
-                transform: translateY(250%);
-                filter: blur(8px);
-                opacity: 0;
-            }
-
-            50% {
-                transform: translateY(100%);
-                filter: blur(0);
-                opacity: 1;
-            }
-
-            60% {
-                transform: translateY(100%);
-                filter: blur(0);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(0%);
-                filter: blur(0);
-                opacity: 1;
-            }
-        }
+        @import url('./resources/css/reset.css');
+        @import url('./resources/css/root.css');
+        @import url('./resources/css/index.css');
     </style>
 </head>
 
 <body>
     <div id="HelloJs" class="JsPage fixed">
         <div id="HelloVideo">
-            <video id="HelloVideoContent" autobuffer autoplay muted loop playsinline>
-                <!-- TODO: ADD WEBM -->
-                <source src="./resources/videos/Hello-720-H264.mp4" type="video/mp4">
-            </video>
+            <!--<video id="HelloVideoContent" autobuffer autoplay muted loop playsinline>
+                <source src="../resources/videos/Hello-720-H264.mp4" type="video/mp4">
+            </video>-->
+            <picture>
+                <source srcset="./resources/images/HelloTempBackground2.webp" type="image/webp">
+                <img src="./resources/images/HelloTempBackground2.jpg" alt="">
+            </picture>
         </div>
         <div id="HelloContent">
             <h3>Hello, I'm</h3>
@@ -535,16 +30,12 @@
     </div>
     <div id="MainJs">
             <div id="JsMenuBarContainer">
-                <div id="JsMenuBarBlur" class="GradientBlurView"></div>
+                <div id="JsMenuBarBlurTop" class="GradientBlurView"></div>
+                <div id="JsMenuBarBlurBottom" class="GradientBlurView"></div>
+                <div id="JsMenuBarMagnifier">
+                    <div class="MagnifierBorder"></div>
+                </div>
                 <span id="JsMenuBar">
-                    <a href="#AboutJs">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info"
-                            viewBox="0 0 16 16">
-                            <path
-                                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-                        </svg>
-                        <span>About</span>
-                    </a>
                     <a href="#SkillsJs">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer"
                             viewBox="0 0 16 16">
@@ -570,6 +61,15 @@
                                 d="M0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3m2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1" />
                         </svg>
                         <span>Projects</span>
+                    </a>
+                    <a href="#ProfilesJs">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle"
+                            viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                        </svg>
+                        <span>Profiles</span>
                     </a>
                 </span>
             </div>
@@ -598,11 +98,16 @@
                 <div id="ExperienceJs" class="JsPage">
                     <span class="PageContent">
                         <h1 class="PageTitle">Experiences.</h1>
-                        <p>2019 <span class="bold">임진초등학교 SW 영재학급 (주말반)</span> 수료</p>
-                        <p>2019 <span class="bold">SW영재교육 산출물 경진대회</span> 참가</p>
+                        <p>2019 한국과학창의재단 <span class="bold">SW영재교육 산출물 경진대회</span> 참가</p>
+                        <p>2019 임진초등학교 <span class="bold">SW영재학급 (주말반)</span> 수료</p>
                         <p>2020 덕이중학교 <span class="bold">내 친구 아두이노</span> 동아리 부장</p>
-                        <p>2021 경기꿈의학교(현 경기공유학교) <span class="bold">나도 인공지능 개발자</span> 차장</p>
+                        <p>2021 경기꿈의학교 <span class="bold">나도 인공지능 개발자</span> 차장</p>
+                        <p>2022 선린인터넷고등학교 <span class="bold">SSF 소프트웨어 나눔축제</span> 참가</p>
+                        <p>2022 가좌고등학교 <span class="bold">프로그래밍부</span> 활동</p>
                         <p>2024 가좌고등학교 <span class="bold">데브큐스(프로그래밍)</span> 동아리 부장</p>
+                        <p>2025 고양교육지원청 <span class="bold">고교연합 인공지능 메이커톤</span> 참가</p>
+                        <!-- 2025. 08. 01. 이후 추가
+                        <p>2025 울산과학기술원 제9회 <span class="bold">슈퍼컴퓨팅 청소년캠프</span> 참가</p> -->
                     </span>
                 </div>
                 <div id="MadeByJs" class="JsPage">
@@ -611,12 +116,13 @@
                         <p>아이콘을 눌러 자세한 정보를 확인하실 수 있습니다.</p>
                     </span>
                     <div id="JsAppLibrary" class="JsIconList">
+                        <!-- TODO: Add WEBP images / resize to 1024x1024 -->
                         <span>
                             <button id="JsAppItem-ProjectPeri" class="JsAppItem hoverEffect">
                                 <picture>
-                                    <source srcset="/resources/images/AppIcon/ProjectPeriIcon-Dark.png"
+                                    <source srcset="./resources/images/AppIcon/ProjectPeriIcon-Dark.png"
                                         media="(prefers-color-scheme: dark)" />
-                                    <img src="/resources/images/AppIcon/ProjectPeriIcon-Default.png" alt="Project Peri" />
+                                    <img src="./resources/images/AppIcon/ProjectPeriIcon-Default.png" alt="Project Peri" />
                                 </picture>
                                 <p class="JsAppTitle">Project Peri</p>
                                 <a class="JsAppLink" href="https://archive.jsna.dev/projectperi" target="_blank">Js Archive</a>
@@ -624,9 +130,9 @@
                             </button>
                             <button id="JsAppItem-StorageManager" class="JsAppItem hoverEffect">
                                 <picture>
-                                    <source srcset="/resources/images/AppIcon/StorageManagerIcon-Dark.png"
+                                    <source srcset="./resources/images/AppIcon/StorageManagerIcon-Dark.png"
                                         media="(prefers-color-scheme: dark)" />
-                                    <img src="/resources/images/AppIcon/StorageManagerIcon-Default.png"
+                                    <img src="./resources/images/AppIcon/StorageManagerIcon-Default.png"
                                         alt="StorageManager" />
                                 </picture>
                                 <p class="JsAppTitle">StorageManager</p>
@@ -634,30 +140,29 @@
                             </button>
                             <button id="JsAppItem-SmallCamera" class="JsAppItem hoverEffect">
                                 <picture>
-                                    <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
+                                    <source srcset="./resources/images/AppIcon/NoIcon-Dark.png"
                                         media="(prefers-color-scheme: dark)" />
-                                    <img src="/resources/images/AppIcon/NoIcon-Default.png" alt="작은 카메라" />
+                                    <img src="./resources/images/AppIcon/NoIcon-Default.png" alt="작은 카메라" />
                                 </picture>
                                 <p class="JsAppTitle">작은 카메라</p>
                                 <p class="JsAppDescription">사진의 화질을 약간 낮춰 파일 용량을 EBS 온라인 클래스 업로드 제한에 맞게 조절해주는 앱.</p>
                             </button>
                             <button id="JsAppItem-TodayLunch" class="JsAppItem hoverEffect">
                                 <picture>
-                                    <source srcset="/resources/images/AppIcon/TodayLunchIcon-Dark.png"
+                                    <source srcset="./resources/images/AppIcon/TodayLunchIcon-Dark.png"
                                         media="(prefers-color-scheme: dark)" />
-                                    <img src="/resources/images/AppIcon/TodayLunchIcon-Default.png" alt="TodayLunch" />
+                                    <img src="./resources/images/AppIcon/TodayLunchIcon-Default.png" alt="TodayLunch" />
                                 </picture>
                                 <p class="JsAppTitle">TodayLunch</p>
                                 <a class="JsAppLink" href="https://apps.apple.com/kr/app/todaylunch/id6443977069"
                                     target="_blank">App Store</a>
-                                <p class="JsAppDescription">손목에서 보는 오늘 급식 메뉴 - Apple Watch를 지원하는 급식 앱.<br>전국 초등학교, 중학교, 고등학교
-                                    및 일본 일부 지역 학교의 급식 메뉴를 간편하게 확인하고, 공유할 수 있습니다.</p>
+                                <p class="JsAppDescription">손목에서 보는 오늘 급식 메뉴 - Apple Watch 지원 급식 식단 정보 앱.<br>전국 초등학교, 중학교, 고등학교 및 일본 일부 지역 학교의 급식 메뉴를 간편하게 확인하고, 공유할 수 있습니다.</p>
                             </button>
                             <button id="JsAppItem-TrainNet" class="JsAppItem hoverEffect">
                                 <picture>
-                                    <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
+                                    <source srcset="./resources/images/AppIcon/NoIcon-Dark.png"
                                         media="(prefers-color-scheme: dark)" />
-                                    <img src="/resources/images/AppIcon/NoIcon-Default.png" alt="TrainNet" />
+                                    <img src="./resources/images/AppIcon/NoIcon-Default.png" alt="TrainNet" />
                                 </picture>
                                 <p class="JsAppTitle">TrainNet</p>
                                 <a class="JsAppLink" href="https://trainnet.kr" target="_blank">TrainNet</a>
@@ -665,32 +170,30 @@
                             </button>
                             <button id="JsAppItem-Station" class="JsAppItem hoverEffect">
                                 <picture>
-                                    <source srcset="/resources/images/AppIcon/StationIcon-Dark.png"
+                                    <source srcset="./resources/images/AppIcon/StationIcon-Dark.png"
                                         media="(prefers-color-scheme: dark)" />
-                                    <img src="/resources/images/AppIcon/StationIcon-Default.png" alt="역.한국" />
+                                    <img src="./resources/images/AppIcon/StationIcon-Default.png" alt="역.한국" />
                                 </picture>
                                 <p class="JsAppTitle">역.한국</p>
                                 <a class="JsAppLink" href="https://역.한국" target="_blank">역.한국</a>
-                                <p class="JsAppDescription">가장 빠른 지하철역 정보 검색 서비스 - 역.한국 from TrainNet<br>복잡한 주소 대신 <a
-                                        href="https://역.한국/김포공항5">역.한국/김포공항5</a> 처럼 짧은 링크로 공유할 수 있습니다.</p>
+                                <p class="JsAppDescription">가장 빠른 지하철역 정보 검색 서비스 - 역.한국 from TrainNet<br>복잡한 주소 대신 <a href="https://역.한국/김포공항5">역.한국/김포공항5</a> 처럼 짧은 링크로 공유할 수 있습니다.</p>
                             </button>
                             <button id="JsAppItem-SwipeBalance" class="JsAppItem hoverEffect">
                                 <picture>
-                                    <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
+                                    <source srcset="./resources/images/AppIcon/NoIcon-Dark.png"
                                         media="(prefers-color-scheme: dark)" />
-                                    <img src="/resources/images/AppIcon/NoIcon-Default.png" alt="역.한국" />
+                                    <img src="./resources/images/AppIcon/NoIcon-Default.png" alt="역.한국" />
                                 </picture>
                                 <p class="JsAppTitle">SwipeBalance</p>
                                 <a class="JsAppLink" href="https://testflight.apple.com/join/xQWasXfj"
                                     target="_blank">TestFlight</a>
-                                <p class="JsAppDescription">선불 교통 카드 잔액 조회 앱 - SwipeBalance from TrainNet<br>iOS 18 이상 버전의
-                                    제어 센터에 제어 항목을 추가하면 앱에 더 빠른 접근이 가능합니다.</p>
+                                <p class="JsAppDescription">선불 교통 카드 잔액 조회 앱 - SwipeBalance from TrainNet<br>iOS 18 이상 버전의 제어 센터에 제어 항목을 추가하면 앱에 더 빠른 접근이 가능합니다.</p>
                             </button>
                             <button id="JsAppItem-InfoBoard" class="JsAppItem hoverEffect">
                                 <picture>
-                                    <source srcset="/resources/images/AppIcon/NoIcon-Dark.png"
+                                    <source srcset="./resources/images/AppIcon/NoIcon-Dark.png"
                                         media="(prefers-color-scheme: dark)" />
-                                    <img src="/resources/images/AppIcon/NoIcon-Default.png" alt="InfoBoard" />
+                                    <img src="./resources/images/AppIcon/NoIcon-Default.png" alt="InfoBoard" />
                                 </picture>
                                 <p class="JsAppTitle">InfoBoard</p>
                                 <p class="JsAppDescription">학교 현관 인포 디스플레이 프로젝트</p>
@@ -707,68 +210,68 @@
                     <div id="JsProfileLinks" class="JsIconList">
                         <a class="hoverEffect" href="https://github.com/hellojsna" target="_blank">
                             <picture>
-                                <source srcset="/resources/images/ProfileLinks/Button-GitHub-Dark.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-GitHub-Dark.webp"
                                     type="image/webp" media="(prefers-color-scheme: dark)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-GitHub-Default.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-GitHub-Default.webp"
                                     type="image/webp" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-GitHub-Dark.png"
+                                <source srcset="./resources/images/ProfileLinks/Button-GitHub-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/ProfileLinks/Button-GitHub-Default.png" alt="GitHub" />
+                                <img src="./resources/images/ProfileLinks/Button-GitHub-Default.png" alt="GitHub" />
                             </picture>
                         </a>
                         <a class="hoverEffect" href="https://todon.jsna.dev/@hellojsna" target="_blank">
                             <picture>
-                                <source srcset="/resources/images/ProfileLinks/Button-Todon-Dark.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Todon-Dark.webp"
                                     type="image/webp" media="(prefers-color-scheme: dark)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Todon-Default.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Todon-Default.webp"
                                     type="image/webp" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Todon-Dark.png"
+                                <source srcset="./resources/images/ProfileLinks/Button-Todon-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/ProfileLinks/Button-Todon-Default.png" alt="Mastodon" />
+                                <img src="./resources/images/ProfileLinks/Button-Todon-Default.png" alt="Mastodon" />
                             </picture>
                         </a>
                         <a class="hoverEffect" href="https://pixel.jsna.dev/hello.jsna" target="_blank">
                             <picture>
-                                <source srcset="/resources/images/ProfileLinks/Button-Pixel-Dark.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Pixel-Dark.webp"
                                     type="image/webp" media="(prefers-color-scheme: dark)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Pixel-Default.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Pixel-Default.webp"
                                     type="image/webp" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Pixel-Dark.png"
+                                <source srcset="./resources/images/ProfileLinks/Button-Pixel-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/ProfileLinks/Button-Pixel-Default.png" alt="Pixelfed" />
+                                <img src="./resources/images/ProfileLinks/Button-Pixel-Default.png" alt="Pixelfed" />
                             </picture>
                         </a>
                         <a class="hoverEffect" href="https://t.me/hellojsna" target="_blank">
                             <picture>
-                                <source srcset="/resources/images/ProfileLinks/Button-Telegram-Dark.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Telegram-Dark.webp"
                                     type="image/webp" media="(prefers-color-scheme: dark)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Telegram-Default.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Telegram-Default.webp"
                                     type="image/webp" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Telegram-Dark.png"
+                                <source srcset="./resources/images/ProfileLinks/Button-Telegram-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/ProfileLinks/Button-Telegram-Default.png" alt="Telegram" />
+                                <img src="./resources/images/ProfileLinks/Button-Telegram-Default.png" alt="Telegram" />
                             </picture>
                         </a>
                         <a class="hoverEffect" href="mailto:open-durable-blend@duck.com">
                             <picture>
-                                <source srcset="/resources/images/ProfileLinks/Button-Email-Dark.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Email-Dark.webp"
                                     type="image/webp" media="(prefers-color-scheme: dark)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Email-Default.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Email-Default.webp"
                                     type="image/webp" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Email-Dark.png"
+                                <source srcset="./resources/images/ProfileLinks/Button-Email-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/ProfileLinks/Button-Email-Default.png" alt="Email" />
+                                <img src="./resources/images/ProfileLinks/Button-Email-Default.png" alt="Email" />
                             </picture>
                         </a>
                         <a class="hoverEffect" href="https://coff.ee/HelloJsNa" target="_blank">
                             <picture>
-                                <source srcset="/resources/images/ProfileLinks/Button-Coffee-Dark.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Coffee-Dark.webp"
                                     type="image/webp" media="(prefers-color-scheme: dark)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Coffee-Default.webp"
+                                <source srcset="./resources/images/ProfileLinks/Button-Coffee-Default.webp"
                                     type="image/webp" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-                                <source srcset="/resources/images/ProfileLinks/Button-Coffee-Dark.png"
+                                <source srcset="./resources/images/ProfileLinks/Button-Coffee-Dark.png"
                                     media="(prefers-color-scheme: dark)" />
-                                <img src="/resources/images/ProfileLinks/Button-Coffee-Default.png" alt="Coffee" />
+                                <img src="./resources/images/ProfileLinks/Button-Coffee-Default.png" alt="Coffee" />
                             </picture>
                         </a>
                     </div>
@@ -802,9 +305,9 @@
         <button id="JsFontLicenseButton">서체 라이선스 ></button>
         <div id="JsFontLicenseContent">
             <picture>
-                <source srcset="/resources/images/AppIcon/JsFontIcon-Dark.png"
+                <source srcset="./resources/images/AppIcon/JsFontIcon-Dark.png"
                     media="(prefers-color-scheme: dark)" />
-                <img src="/resources/images/AppIcon/JsFontIcon-Default.png" alt="InfoBoard" />
+                <img src="./resources/images/AppIcon/JsFontIcon-Default.png" alt="InfoBoard" />
             </picture>
             <p class="JsAppTitle">서체 라이선스</p>
             <span class="JsAppDescription">
@@ -814,148 +317,8 @@
             </span>
         </div>
     </footer>
-    <script src="/resources/scripts/root.js"></script>
-    <script>
-        const helloJs = eById('HelloJs');
-        const JsPageContainer = eById('JsPageContainer');
-        const HelloVideo = eById('HelloVideo');
-        const HelloVideoContent = eById('HelloVideoContent');
-
-        const JsMenuBarContainer = eById('JsMenuBarContainer');
-        const JsMenuBarBlur = eById('JsMenuBarBlur');
-
-        const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-
-        window.addEventListener('scroll', function () {
-            const scrollY = window.scrollY;
-            const maxBlur = 20;
-            const containerHeight = window.innerHeight;
-            if (scrollY >= containerHeight * 0.95) {
-                JsPageContainer.style.backgroundColor = 'var(--SecondaryBackground)';
-                HelloVideoContent.pause();
-
-            } else {
-                HelloVideoContent.play();
-                JsPageContainer.style.backgroundColor = 'var(--BlurBackground)';
-            }
-            if (scrollY > containerHeight) {
-                JsMenuBarBlur.style.display = 'block';
-                HelloVideo.style.display = 'none';
-            } else {
-                JsMenuBarBlur.style.display = 'none';
-                HelloVideo.style.display = 'flex';
-            }
-        });
-
-        const JsAppDetailCloseButton = eById('JsAppDetailCloseButton');
-        const JsAppDetailView = eById('JsAppDetailView');
-        const JsAppDetailBackground = eById('JsAppDetailBackground');
-        const JsAppItems = document.querySelectorAll('.JsAppItem');
-
-        function showJsAppDetailView(titleElem, descriptionElem, iconElem, linkElems) {
-            eById('JsAppDetailTitle').innerText = titleElem.innerText;
-            eById('JsAppDetailDescription').innerHTML = descriptionElem.innerHTML;
-            eById('JsAppDetailIconContainer').innerHTML = iconElem.outerHTML;
-            const JsAppDetailLinkContainer = eById('JsAppDetailLinkContainer');
-            JsAppDetailLinkContainer.innerHTML = '';
-            if (linkElems) {
-                for (let i = 0; i < linkElems.length; i++) {
-                    const a = document.createElement('a');
-                    a.href = linkElems[i].href;
-                    a.target = '_blank';
-                    a.innerText = linkElems[i].innerText;
-                    JsAppDetailLinkContainer.appendChild(a);
-                }
-            }
-            JsAppDetailView.style.display = 'flex';
-            JsAppDetailBackground.style.display = 'block';
-            setTimeout(function () {
-                JsAppDetailView.classList.add('show');
-                JsAppDetailBackground.classList.add('show');
-            }, 10);
-        }
-        function hideJsAppDetailView() {
-            JsAppDetailView.classList.remove('show');
-            JsAppDetailBackground.classList.remove('show');
-            setTimeout(function () {
-                JsAppDetailView.style.display = 'none';
-                JsAppDetailBackground.style.display = 'none';
-            }, 300);
-        }
-        JsAppDetailBackground.addEventListener('click', function () {
-            hideJsAppDetailView();
-        });
-        JsAppDetailCloseButton.addEventListener('click', function () {
-            hideJsAppDetailView();
-        });
-        JsAppItems.forEach(item => {
-            item.addEventListener('click', function () {
-                showJsAppDetailView(
-                    item.querySelector('.JsAppTitle'),
-                    item.querySelector('.JsAppDescription'),
-                    item.querySelector('picture'),
-                    item.querySelectorAll('.JsAppLink')
-                );
-            });
-        });
-        
-        const JsFontLicenseButton = eById('JsFontLicenseButton');
-        const JsFontLicenseContent = eById('JsFontLicenseContent');
-        JsFontLicenseButton.addEventListener('click', function () {
-            showJsAppDetailView(
-                JsFontLicenseContent.querySelector('.JsAppTitle'),
-                JsFontLicenseContent.querySelector('.JsAppDescription'),
-                JsFontLicenseContent.querySelector('picture'),
-                []
-            );
-        });
-
-        function calcOptimalGradientStep() {
-            return Math.floor(0.3 * remInPx);
-        }
-        function drawGradientBlur(targetElem, destElem, amount = 30, position = "top") {
-            const elementHeight = Math.floor(targetElem.offsetHeight * 1.25);
-            const stepHeightPx = calcOptimalGradientStep();
-            const steps = Math.max(1, Math.floor(elementHeight / stepHeightPx));
-            const fragment = document.createDocumentFragment();
-            const d = 2 * amount / (steps * (steps + 1));
-
-            console.log(`Drawing gradient blur with ${steps} steps, each ${stepHeightPx}px.`);
-            for (let i = 1; i <= steps; i++) {
-                const stepDiv = document.createElement('div');
-
-                const currentHeight = i * stepHeightPx;
-
-                const blurValue = (steps - i + 1) * d;
-                stepDiv.setAttribute('style', `${position === 'top' ? 'top: 0;' : 'bottom: 0;'} height: ${currentHeight}px; backdrop-filter: blur(${blurValue}px); -webkit-backdrop-filter: blur(${blurValue}px);`);
-                stepDiv.style.pointerEvents = 'none';
-
-                fragment.appendChild(stepDiv);
-            }
-
-            const container = document.createElement('div');
-            container.style.top = position === 'top' ? '0' : 'auto';
-            container.style.bottom = position === 'bottom' ? '0' : 'auto';
-            container.style.height = `${elementHeight}px`;
-            container.appendChild(fragment);
-
-            destElem.appendChild(container);
-        }
-
-        function setMainMargin() {
-            const viewportHeight = window.innerHeight;
-            const mainJs = document.getElementById('MainJs');
-            mainJs.style.marginTop = `${viewportHeight - 6 * remInPx}px`;
-        }
-        window.addEventListener('resize', function () {
-            setMainMargin();
-        });
-        document.addEventListener('DOMContentLoaded', function () {
-            drawGradientBlur(JsMenuBarContainer, JsMenuBarBlur);
-            setMainMargin();
-        });
-    
-    </script>
+    <script src="./resources/scripts/root.js"></script>
+    <script src="./resources/scripts/index.js"></script>
 </body>
 
 </html>

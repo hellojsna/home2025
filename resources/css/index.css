@@ -1,0 +1,564 @@
+.JsPage {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    color: var(--PrimaryText);
+    font-family: "SeoulAlrim", sans-serif;
+}
+.JsPage.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--PrimaryBackground);
+}
+.JsPage .PageTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--PrimaryText);
+    margin: 0.3rem 0;
+}
+.JsPage p {
+    font-size: 1rem;
+    color: var(--PrimaryText);
+    margin: 0.3rem 0;
+}
+.JsPage .PageContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#MainJs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: calc(100vh - 6rem);
+    min-height: 100vh;
+    z-index: 1;
+}
+#MainJs .JsPage {
+    padding: 5rem 1rem 0 1rem;
+    box-sizing: border-box;
+}
+
+#JsPageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 25px 25px 0 0;
+    transition: background-color 0.5s ease-in-out;
+    padding: 5vh 0;
+    box-sizing: border-box;
+}
+#JsPageContainer #JsPages {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: fit-content;
+    min-width: 70vw;
+    height: 100%;
+}
+
+#HelloJs {
+    font-family: "SeoulAlrim", sans-serif;
+    font-weight: bold;
+}
+#HelloJs h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--PrimaryText);
+    animation: HelloJsTitle 4s cubic-bezier(0.22, 1, 0.36, 1);
+    margin: 0;
+}
+#HelloJs h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--PrimaryText);
+    animation: HelloJsSubtitle 4s cubic-bezier(0.22, 1, 0.36, 1);
+    margin: 0;
+}
+
+#HelloJs>div {
+    width: 100%;
+    height: 100%;
+}
+
+#HelloVideo {
+    position: fixed;
+    box-sizing: border-box;
+}
+#HelloVideo>video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#HelloVideo>picture img {
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+}
+#HelloContent {
+    position: absolute;
+    background-color: var(--BlurBackground);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.JsIconList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--ListBackground);
+    padding: 5%;
+    box-sizing: border-box;
+    border-radius: 1rem;
+}
+.JsIconList .hoverEffect {
+    transform: none;
+    filter: none;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.JsIconList .hoverEffect:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2) drop-shadow(0 0 5px var(--SecondaryBackground));
+}
+
+#JsAppLibrary>h2 {
+    margin: 1.5rem 0 0.5rem 0;
+}
+#JsAppLibrary>span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#JsAppLibrary .JsAppItem {
+    width: 8rem;
+    height: 5rem;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--PrimaryText);
+    background: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+#JsAppLibrary .JsAppItem picture {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+#JsAppLibrary .JsAppItem p {
+    font-size: 1rem;
+    margin-top: 0.2em;
+    text-align: center;
+    letter-spacing: -0.03em;
+}
+#JsAppLibrary .JsAppItem .JsAppLink {
+    display: none;
+}
+#JsAppLibrary .JsAppItem .JsAppDescription {
+    display: none;
+}
+
+#JsAppDetailView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5678;
+}
+
+#JsAppDetailBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: var(--BlurBackground);
+    backdrop-filter: blur(10px) saturate(180%);
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: pointer
+}
+#JsAppDetailBackground.show {
+    opacity: 1;
+}
+
+#JsAppDetailView>#JsAppDetailContent {
+    width: 90%;
+    min-width: 50%;
+    max-width: 600px;
+    background-color: var(--ListBackground);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#JsAppDetailView.show>#JsAppDetailContent,
+#JsAppDetailView.show>#JsAppDetailControlContainer {
+    transform: scale(1);
+    opacity: 1;
+}
+#JsAppDetailContent picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+#JsAppDetailContent #JsAppDetailTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--PrimaryText);
+    margin: 0.25rem 0;
+}
+#JsAppDetailContent #JsAppDetailDescription {
+    width: 100%;
+    background-color: var(--SecondaryBackground);
+    font-size: 1rem;
+    color: var(--PrimaryText);
+    margin: 0.5rem 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+}
+
+#JsAppDetailControlContainer {
+    width: 90%;
+    min-width: 50%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+    box-sizing: border-box;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#JsAppDetailLinkContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+}
+#JsAppDetailLinkContainer a,
+#JsAppDetailControlContainer button {
+    height: 2rem;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--PrimaryText);
+    background-color: var(--BlurBackground);
+    box-shadow: 0 0px 2px var(--PrimaryText);
+    backdrop-filter: blur(10px) saturate(180%);
+    margin-right: 0.75rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 999px;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+#JsAppDetailControlContainer>#JsAppDetailCloseButton {
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+}
+#JsAppDetailCloseButton>svg {
+    width: 100%;
+    height: 100%;
+    color: var(--red);
+    filter: drop-shadow(0 0 5px var(--red));
+}
+#JsAppDetailLinkContainer a:hover,
+#JsAppDetailControlContainer button:hover {
+    background-color: var(--PrimaryText);
+    color: var(--PrimaryBackground);
+}
+
+#JsProfileLinks {
+    justify-content: space-around;
+}
+#JsProfileLinks a {
+    display: inline-block;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    line-height: 0;
+    overflow: hidden;
+}
+#JsProfileLinks picture {
+    height: 3rem;
+    object-fit: cover;
+}
+
+#JsMenuBarContainer {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 6rem;
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 56789;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#JsMenuBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    min-width: 70vw;
+    height: 2.5rem;
+    /* background-color: var(--BlurBackground); */
+    color: var(--PrimaryText);
+    box-shadow: 0 0px 20px #00000033;
+    backdrop-filter: blur(6px) saturate(180%) brightness(1.2);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#JsMenuBar:hover {
+    transform: scale(1.02);
+}
+#JsMenuBar::before { /* https://stackoverflow.com/questions/51496204/border-gradient-with-border-radius/51496341#51496341 */
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    padding: 2px;
+    border-radius: 999px;
+    background: linear-gradient(170deg, #ffffff33, transparent, #ffffff33);
+    mask: linear-gradient(#000 0 0) exclude,  linear-gradient(#000 0 0) content-box;
+}
+#JsMenuBar a {
+    text-decoration: none;
+    color: var(--PrimaryText);
+    padding: 0 0.5rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#JsMenuBar a > svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--PrimaryText);
+    transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#JsMenuBar a > span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding-top: 0.2rem;
+}
+#JsMenuBar a.active, #JsMenuBar a:hover {
+    color: var(--blue) !important;
+    padding: 0.5rem;
+}
+#JsMenuBar a.active > svg, #JsMenuBar a:hover > svg {
+    color: var(--blue) !important;
+}
+#JsMenuBarMagnifier {
+    position: absolute;
+    z-index: 1;
+    width: 4rem;
+    height: 2.5rem;
+    inset: 0;
+    background: none;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    top: 1.25rem;
+    left: 0;
+    transform: scale(1);
+    opacity: 0;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 0.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+}
+#JsMenuBarContainer:hover > #JsMenuBarMagnifier {
+    transform: scale(1.3);
+    backdrop-filter: blur(0.3px) brightness(1.5);
+    opacity: 1;
+}
+#JsMenuBarMagnifier::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    padding: 2px;
+    border-radius: 999px;
+    background: linear-gradient(170deg, #ffffff33, transparent, #ffffff33);
+    mask: linear-gradient(#000 0 0) exclude, linear-gradient(#000 0 0) content-box;
+}
+.GradientBlurView {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: 0 auto;
+    pointer-events: none;
+}
+.GradientBlurView > div {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+.GradientBlurView > div > div {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
+    transform: translate3d(0,0,0);
+    transform: translateZ(0);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    will-change: backdrop-filter;
+}
+
+#JsFooter {
+    position: relative;
+    display: flex;
+    height: 10em;
+    padding: 2em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #434343;
+    color: #ffffffCD;
+}
+#JsFooter h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#JsFooter p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#JsFooter #JsFontLicenseButton {
+    font-size: 1rem;
+    line-height: 1.5;
+    border: none;
+    background: none;
+    color: var(--blue);
+}
+#JsFooter #JsFontLicenseContent {
+    display: none;
+}
+.SeoulAlrim, .SeoulAlrim * {
+    font-family: 'SeoulAlrim', sans-serif !important;
+    font-weight: 500 !important;
+}
+.SCDream, .SCDream * {
+    font-family: 'SCDream', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+@keyframes HelloJsTitle {
+    0% {
+        transform: translateY(100%);
+        filter: blur(8px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(100%);
+        filter: blur(8px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@keyframes HelloJsSubtitle {
+    0% {
+        transform: translateY(250%);
+        filter: blur(8px);
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateY(250%);
+        filter: blur(8px);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(100%);
+        filter: blur(0);
+        opacity: 1;
+    }
+
+    60% {
+        transform: translateY(100%);
+        filter: blur(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0%);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
