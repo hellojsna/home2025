@@ -232,7 +232,16 @@ document.addEventListener('mousemove', function (event) {
         isMouseMoveProcessing = true;
     }
 });
-/*        
+
+eById("LanguageSelect").addEventListener("change", function () {
+    const selectedLang = this.value;
+    if (selectedLang === 'ko') {
+        window.location.href = './index.html';
+    } else if (selectedLang === 'en') {
+        window.location.href = './index_en.html';
+    }
+});
+/*
 // on menu bar click, scale to 1.2 and back to 1.0 after 100ms
 JsMenuBarContainer.addEventListener('click', function () {
     JsMenuBarMagnifier.style.transform = 'scale(1.2)';

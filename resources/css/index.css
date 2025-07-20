@@ -102,6 +102,28 @@
     height: 100%;
 }
 
+#LanguagePicker {
+    width: auto;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+#LanguagePicker select {
+    width: 6rem;
+    height: 2rem;
+    font-size: 1rem;
+    color: var(--PrimaryText);
+    background-color: var(--BlurBackground);
+    backdrop-filter: blur(10px) saturate(180%);
+    border: none;
+    border-radius: 10px;
+    padding: 0.25rem;
+    cursor: pointer;
+}
 #HelloVideo {
     position: fixed;
     box-sizing: border-box;
