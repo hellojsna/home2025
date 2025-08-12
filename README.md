@@ -31,7 +31,7 @@ No frameworks or libraries are used: just pure web technologies.
 
 ## Getting Started
 
-Open [https://hello.jsna.dev/home2025](https://hello.hsna.dev/home2025) in your browser.
+Open [https://hello.jsna.dev/home2025](https://hello.jsna.dev/home2025) in your browser.
 
 ---
 
