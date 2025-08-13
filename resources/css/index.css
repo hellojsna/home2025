@@ -21,15 +21,18 @@
     background-color: var(--PrimaryBackground);
 }
 .JsPage .PageTitle {
-    font-size: 2rem;
     font-weight: bold;
-    color: var(--PrimaryText);
     margin: 0.3rem 0;
 }
+
+.JsPage:nth-of-type(4n+1) .PageTitle { color: var(--SMRT5); }
+.JsPage:nth-of-type(4n+2) .PageTitle { color: var(--SMRT6); }
+.JsPage:nth-of-type(4n+3) .PageTitle { color: var(--SMRT7); }
+.JsPage:nth-of-type(4n) .PageTitle { color: var(--SMRT8); }
+
 .JsPage p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--PrimaryText);
-    margin: 0.3rem 0;
 }
 .JsPage .PageContent {
     width: 100%;
@@ -37,6 +40,11 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+    margin-bottom: 1.5rem;
+}
+.JsPage .PageContent .PageSection {
+    padding: 0.5rem 0;
+    box-sizing: border-box;
 }
 
 #MainJs {
@@ -50,7 +58,7 @@
     z-index: 1;
 }
 #MainJs .JsPage {
-    padding: 5rem 1rem 0 1rem;
+    padding: 4rem 1rem 0 1rem;
     box-sizing: border-box;
 }
 
@@ -531,6 +539,10 @@
 }
 .SCDream, .SCDream * {
     font-family: 'SCDream', sans-serif !important;
+    font-weight: 500 !important;
+}
+.PretendardGOV, .PretendardGOV * {
+    font-family: 'Pretendard GOV', sans-serif !important;
     font-weight: 500 !important;
 }
 

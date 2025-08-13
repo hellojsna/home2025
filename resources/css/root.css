@@ -18,8 +18,17 @@ picture {
   justify-content: center;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  word-break: keep-all;
+}
 h1 {
   font-size: 2em;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 1.5em;
+  line-height: 1.2;
 }
 
 a {
@@ -39,8 +48,8 @@ a, button {
 p {
   margin: 0;
   padding: 0;
-  font-family: "SCdream", sans-serif;
-  font-weight: 300;
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: normal;
   line-height: 1.5;
   word-break: auto-phrase;
 }
@@ -48,6 +57,12 @@ p > span.bold {
   font-weight: 700;
 }
 
+select {
+  font-family: "Pretendard GOV", sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  word-break: auto-phrase;
+}
 :root {
   --PrimaryBackground: #f2f2f7;
   --SecondaryBackground: #ffffff;
@@ -58,6 +73,10 @@ p > span.bold {
   --red: #ff3b30;
   --yellow: #ffcc00;
   --green: #34c759;
+  --SMRT5: #603295;
+  --SMRT6: #CC5D0C;
+  --SMRT7: #4D5613;
+  --SMRT8: #F73663;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -71,9 +90,13 @@ p > span.bold {
     --red: #ff453a;
     --yellow: #ffd60a;
     --green: #30d158;
+    --SMRT5: #996CAC;
+    --SMRT6: #CD7C2F;
+    --SMRT7: #747F00;
+    --SMRT8: #E6186C;
   }
 }
-
+/*
 @font-face {
   font-family: "SCDream";
   src: url("../fonts/SCDream1.woff2") format("woff2");
@@ -127,6 +150,7 @@ p > span.bold {
   src: url("../fonts/SCDream9.woff2") format("woff2");
   font-weight: 900;
 }
+*/
 
 @font-face {
   font-family: "SeoulAlrim";
@@ -138,4 +162,76 @@ p > span.bold {
   font-family: "SeoulAlrim";
   src: url("../fonts/SeoulAlrim-Bold.woff2") format("woff2");
   font-weight: 700;
+}
+
+/*
+Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard GOV.
+https://github.com/orioncactus/pretendard
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+*/
+
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 900;
+	font-display: swap;
+	src: local('Pretendard GOV Black'), url(../fonts/woff2-subset/PretendardGOV-Black.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Black.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 800;
+	font-display: swap;
+	src: local('Pretendard GOV ExtraBold'), url(../fonts/woff2-subset/PretendardGOV-ExtraBold.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-ExtraBold.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 700;
+	font-display: swap;
+	src: local('Pretendard GOV Bold'), url(../fonts/woff2-subset/PretendardGOV-Bold.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Bold.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 600;
+	font-display: swap;
+	src: local('Pretendard GOV SemiBold'), url(../fonts/woff2-subset/PretendardGOV-SemiBold.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-SemiBold.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 500;
+	font-display: swap;
+	src: local('Pretendard GOV Medium'), url(../fonts/woff2-subset/PretendardGOV-Medium.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Medium.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 400;
+	font-display: swap;
+	src: local('Pretendard GOV Regular'), url(../fonts/woff2-subset/PretendardGOV-Regular.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Regular.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 300;
+	font-display: swap;
+	src: local('Pretendard GOV Light'), url(../fonts/woff2-subset/PretendardGOV-Light.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Light.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 200;
+	font-display: swap;
+	src: local('Pretendard GOV ExtraLight'), url(../fonts/woff2-subset/PretendardGOV-ExtraLight.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-ExtraLight.subset.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Pretendard GOV';
+	font-weight: 100;
+	font-display: swap;
+	src: local('Pretendard GOV Thin'), url(../fonts/woff2-subset/PretendardGOV-Thin.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Thin.subset.woff) format('woff');
 }
