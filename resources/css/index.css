@@ -159,6 +159,13 @@
     align-items: center;
 }
 
+.JsProjectHighlight picture {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    margin: 0.5rem 0;
+}
+
 .JsIconList {
     display: flex;
     flex-wrap: wrap;

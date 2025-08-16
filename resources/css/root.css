@@ -49,12 +49,13 @@ p {
   margin: 0;
   padding: 0;
   font-family: "Pretendard GOV", sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   line-height: 1.5;
   word-break: auto-phrase;
 }
 p > span.bold {
-  font-weight: 700;
+  font-weight: bold;
+  background-color: var(--HighlightBackground);
 }
 
 select {
@@ -68,8 +69,9 @@ select {
   --SecondaryBackground: #ffffff;
   --PrimaryText: #000000;
   --ListBackground: #f2f2f7;
-  --blue: #007aff;
   --BlurBackground: rgba(255, 255, 255, .4);
+  --HighlightBackground: rgba(0, 122, 255, .2);
+  --blue: #007aff;
   --red: #ff3b30;
   --yellow: #ffcc00;
   --green: #34c759;
@@ -85,8 +87,9 @@ select {
     --PrimaryBackground: #000000;
     --PrimaryText: #ffffff;
     --ListBackground: #2c2c2e;
-    --blue: #0a84ff;
     --BlurBackground: rgba(22, 22, 23, .4);
+    --HighlightBackground: rgba(10, 132, 255, .4);
+    --blue: #0a84ff;
     --red: #ff453a;
     --yellow: #ffd60a;
     --green: #30d158;
