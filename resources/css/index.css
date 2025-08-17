@@ -14,6 +14,7 @@
 }
 .JsPage.fixed {
     position: fixed;
+    -webkit-backface-visibility: hidden;
     top: 0;
     left: 0;
     width: 100%;
@@ -53,7 +54,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: calc(100vh - 6rem);
+    margin-top: 100svh;
+    margin-top: calc(100svh - 6rem);
     min-height: 100vh;
     z-index: 1;
 }
@@ -71,6 +73,7 @@
     height: 100%;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-radius: 25px 25px 0 0;
     transition: background-color 0.5s ease-in-out;
     padding: 5vh 0;
@@ -89,6 +92,8 @@
 #HelloJs {
     font-family: "SeoulAlrim", sans-serif;
     font-weight: bold;
+    width: 100vw;
+    height: 100svh;
 }
 #HelloJs h1 {
     font-size: 5rem;
@@ -121,12 +126,13 @@
     box-sizing: border-box;
 }
 #LanguagePicker select {
-    width: 6rem;
+    width: auto;
     height: 2rem;
     font-size: 1rem;
     color: var(--PrimaryText);
     background-color: var(--BlurBackground);
     backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     border: none;
     border-radius: 10px;
     padding: 0.25rem;
@@ -135,6 +141,7 @@
 #HelloVideo {
     position: fixed;
     box-sizing: border-box;
+    height: 100svh !important;
 }
 #HelloVideo>video {
     width: 100%;
@@ -148,6 +155,7 @@
     object-fit: cover;
     height: auto;
     width: 100%;
+    height: 100%;
 }
 #HelloContent {
     position: absolute;
@@ -251,6 +259,7 @@
     display: none;
     background-color: var(--BlurBackground);
     backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     opacity: 0;
     transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     cursor: pointer
@@ -332,6 +341,7 @@
     background-color: var(--BlurBackground);
     box-shadow: 0 0px 2px var(--PrimaryText);
     backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     margin-right: 0.75rem;
     padding: 1rem;
     box-sizing: border-box;
@@ -388,6 +398,7 @@
     align-items: center;
 }
 #JsMenuBar {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -398,6 +409,7 @@
     color: var(--PrimaryText);
     box-shadow: 0 0px 20px #00000033;
     backdrop-filter: blur(6px) saturate(180%) brightness(1.15);
+    -webkit-backdrop-filter: blur(6px) saturate(180%) brightness(1.15);
     border-radius: 999px;
     padding: 0.5rem 1rem;
     transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
@@ -414,6 +426,7 @@
     border-radius: 999px;
     background: linear-gradient(170deg, #ffffff33, transparent, #ffffff33);
     mask: linear-gradient(#000 0 0) exclude,  linear-gradient(#000 0 0) content-box;
+
 }
 #JsMenuBar a {
     text-decoration: none;
@@ -463,6 +476,7 @@
 #JsMenuBarContainer:hover > #JsMenuBarMagnifier {
     transform: scale(1.3);
     backdrop-filter: blur(0.3px) brightness(1.4);
+    -webkit-backdrop-filter: blur(0.3px) brightness(1.4);
     opacity: 1;
 }
 #JsMenuBarMagnifier::before {

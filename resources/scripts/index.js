@@ -105,11 +105,14 @@ function drawGradientBlur(targetElem, destElem, position = "top", amount = 25) {
     destElem.appendChild(container);
 }
 
+/*
+// Removed to fix scroll behavior.
 function setMainMargin() {
     const viewportHeight = window.innerHeight;
     const mainJs = document.getElementById('MainJs');
     mainJs.style.marginTop = `${viewportHeight - 6 * remInPx}px`;
 }
+*/
 
 var isThrottling = false;
 function eventThrottle(func, time) {
@@ -149,7 +152,7 @@ function scrollEventHandler() {
     }
 }
 window.addEventListener('resize', function () {
-    setMainMargin();
+    //setMainMargin();
 });
 window.addEventListener('scroll', function () {
     eventThrottle(scrollEventHandler, 300);
@@ -157,8 +160,11 @@ window.addEventListener('scroll', function () {
 document.addEventListener('DOMContentLoaded', function () {
     drawGradientBlur(JsMenuBarContainer, JsMenuBarBlurTop);
     drawGradientBlur(JsMenuBarContainer, JsMenuBarBlurBottom, 'bottom');
-    setMainMargin();
+    //setMainMargin();
     scrollEventHandler();
+    setTimeout(() => {
+        document.documentElement.style.scrollBehavior = 'smooth'; // Fix for iOS WebKit refresh bug
+    }, 100);
 });
 
 var isMoving = false;
