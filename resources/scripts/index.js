@@ -16,10 +16,34 @@ const JsAppDetailBackground = eById('JsAppDetailBackground');
 const JsAppItems = document.querySelectorAll('.JsAppItem');
 
 
-function showJsAppDetailView(titleElem, descriptionElem, iconElem, linkElems) {
+function showJsAppDetailView(titleElem, descriptionElem, iconElem, previewElem, linkElems) {
     eById('JsAppDetailTitle').innerText = titleElem.innerText;
     eById('JsAppDetailDescription').innerHTML = descriptionElem.innerHTML;
     eById('JsAppDetailIconContainer').innerHTML = iconElem.outerHTML;
+    const previewContainer = eById('JsAppDetailPreviewImagesContainer');
+    if (previewElem == null) {
+        previewContainer.innerHTML = `No Screenshots Available for ${titleElem.innerText}.`;
+    } else {
+        previewContainer.innerHTML = previewElem.innerHTML;
+        const imageElements = previewContainer.getElementsByTagName('img');
+        Array.from(imageElements).forEach(img => {
+            img.addEventListener('click', function () {
+                // Copy image element
+                const tempImageElem = img.cloneNode();
+                tempImageElem.classList.add('JsAppDetailPreviewImageEnlarged');
+                document.body.appendChild(tempImageElem);
+                setTimeout(() => {
+                    tempImageElem.classList.add('show');
+                }, 10);
+                tempImageElem.addEventListener('click', function () {
+                    tempImageElem.classList.remove('show');
+                    setTimeout(() => {
+                        document.body.removeChild(tempImageElem);
+                    }, 300);
+                })
+            });
+        });
+    }
     const JsAppDetailLinkContainer = eById('JsAppDetailLinkContainer');
     JsAppDetailLinkContainer.innerHTML = '';
     if (linkElems) {
@@ -58,6 +82,7 @@ JsAppItems.forEach(item => {
             item.querySelector('.JsAppTitle'),
             item.querySelector('.JsAppDescription'),
             item.querySelector('picture'),
+            item.querySelector('.JsAppDetailPreviewImagesContainer'),
             item.querySelectorAll('.JsAppLink')
         );
     });
@@ -70,6 +95,7 @@ JsFontLicenseButton.addEventListener('click', function () {
         JsFontLicenseContent.querySelector('.JsAppTitle'),
         JsFontLicenseContent.querySelector('.JsAppDescription'),
         JsFontLicenseContent.querySelector('picture'),
+        null,
         []
     );
 });

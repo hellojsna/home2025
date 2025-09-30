@@ -131,8 +131,8 @@
     font-size: 1rem;
     color: var(--PrimaryText);
     background-color: var(--BlurBackground);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    backdrop-filter: var(--primaryBlur);
+    -webkit-backdrop-filter: var(--primaryBlur);
     border: none;
     border-radius: 10px;
     padding: 0.25rem;
@@ -238,7 +238,9 @@
 #JsAppLibrary .JsAppItem .JsAppDescription {
     display: none;
 }
-
+#JsAppLibrary .JsAppItem .JsAppDetailPreviewImagesContainer {
+    display: none;
+}
 #JsAppDetailView {
     position: fixed;
     top: 0;
@@ -258,8 +260,8 @@
     height: 100%;
     display: none;
     background-color: var(--BlurBackground);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    backdrop-filter: var(--primaryBlur);
+    -webkit-backdrop-filter: var(--primaryBlur);
     opacity: 0;
     transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     cursor: pointer
@@ -272,6 +274,7 @@
     width: 90%;
     min-width: 50%;
     max-width: 600px;
+    max-height: 80vh;
     background-color: var(--ListBackground);
     border-radius: 1rem;
     padding: 2rem;
@@ -312,6 +315,51 @@
     border-radius: 0.5rem;
 }
 
+#JsAppDetailPreviewImagesContainer {
+    width: 100%;
+    background-color: var(--SecondaryBackground);
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    overflow-x: scroll;
+}
+.JsAppDetailPreviewImages {
+    width: fit-content;
+    height: 100%;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+}
+.JsAppDetailPreviewImages img {
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0.5em;
+}
+.JsAppDetailPreviewImageEnlarged {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100dvh;
+    padding: 1rem;
+    box-sizing: border-box;
+    object-fit: contain;
+    z-index: 9999;
+    background-color: transparent;
+    backdrop-filter: var(--primaryBlur);
+    -webkit-backdrop-filter: var(--primaryBlur);
+    transform: scale(0.8);
+    opacity: 0;
+    transition: background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.JsAppDetailPreviewImageEnlarged.show {
+    background-color: var(--BlurBackground);
+    transform: scale(1);
+    opacity: 1;
+}
+
 #JsAppDetailControlContainer {
     width: 90%;
     min-width: 50%;
@@ -340,8 +388,8 @@
     color: var(--PrimaryText);
     background-color: var(--BlurBackground);
     box-shadow: 0 0px 2px var(--PrimaryText);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    backdrop-filter: var(--primaryBlur);
+    -webkit-backdrop-filter: var(--primaryBlur);
     margin-right: 0.75rem;
     padding: 1rem;
     box-sizing: border-box;

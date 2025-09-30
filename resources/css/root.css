@@ -96,6 +96,7 @@ select {
     --SMRT6: #CD7C2F;
     --SMRT7: #747F00;
     --SMRT8: #E6186C;
+    --primaryBlur: blur(10px) saturate(180%);
   }
 }
 /*
