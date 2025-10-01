@@ -78,6 +78,7 @@ select {
   --SMRT6: #CC5D0C;
   --SMRT7: #4D5613;
   --SMRT8: #F73663;
+  --primaryBlur: blur(10px) saturate(180%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -96,7 +97,6 @@ select {
     --SMRT6: #CD7C2F;
     --SMRT7: #747F00;
     --SMRT8: #E6186C;
-    --primaryBlur: blur(10px) saturate(180%);
   }
 }
 /*

@@ -22,7 +22,7 @@ function showJsAppDetailView(titleElem, descriptionElem, iconElem, previewElem, 
     eById('JsAppDetailIconContainer').innerHTML = iconElem.outerHTML;
     const previewContainer = eById('JsAppDetailPreviewImagesContainer');
     if (previewElem == null) {
-        previewContainer.innerHTML = `No Screenshots Available for ${titleElem.innerText}.`;
+        previewContainer.innerHTML = `No Images Available for ${titleElem.innerText}.`;
     } else {
         previewContainer.innerHTML = previewElem.innerHTML;
         const imageElements = previewContainer.getElementsByTagName('img');
