@@ -475,8 +475,13 @@
     background: linear-gradient(170deg, #ffffff33, transparent, #ffffff33);
     mask: linear-gradient(#000 0 0) exclude,  linear-gradient(#000 0 0) content-box;
 }
-.JsMenuBar > * {
+.JsMenuBar .MenuItemWrapper {
     width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.JsMenuBar a {
     text-decoration: none;
     color: var(--PrimaryText);
     padding: 0 0.5rem;
@@ -486,25 +491,21 @@
     justify-content: center;
     flex-direction: column;
 }
-.JsMenuBar > * > svg {
+.JsMenuBar a > svg {
     width: 1.5rem;
     height: 1.5rem;
     color: var(--PrimaryText);
     transition: color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.JsMenuBar > * > span {
+.JsMenuBar a > span {
     font-size: 0.8rem;
     font-weight: 500;
     padding-top: 0.2rem;
 }
-#JsMenuBarColor {
-    position: absolute;
-    pointer-events: none;
-    mask: radial-gradient(var(--mask-height, 1.25rem) at var(--mask-x, 50%) 50%, black 60%, transparent 85%);
-    -webkit-mask: radial-gradient(var(--mask-height, 1.25rem) at var(--mask-x, 50%) 50%, black 60%, transparent 85%);
-    transform: scale(1.02);
+#JsMenuBar a.active, #JsMenuBar a:hover {
+    color: var(--blue) !important;
 }
-#JsMenuBarColor * {
+#JsMenuBar a.active > svg, #JsMenuBar a:hover > svg {
     color: var(--blue) !important;
 }
 #JsMenuBarMagnifier {
@@ -519,15 +520,15 @@
     top: 1.25rem;
     left: 0;
     transform: scale(1);
-    opacity: 1;
-    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-    pointer-events: none;
+    opacity: 0;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 0.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1);    pointer-events: none;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.1);
 }
 #JsMenuBarContainer:hover > #JsMenuBarMagnifier {
     transform: scale(1.3);
     backdrop-filter: blur(0.3px) brightness(1.4);
     -webkit-backdrop-filter: blur(0.3px) brightness(1.4);
+    opacity: 1;
 }
 #JsMenuBarMagnifier::before {
     content: "";
@@ -536,6 +537,8 @@
     inset: 0;
     padding: 2px;
     border-radius: 999px;
+    background: linear-gradient(170deg, #ffffff33, transparent, #ffffff33);
+    mask: linear-gradient(#000 0 0) exclude, linear-gradient(#000 0 0) content-box;
 }
 
 .GradientBlurView {

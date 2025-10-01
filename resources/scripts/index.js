@@ -7,7 +7,6 @@ const JsMenuBarContainer = eById('JsMenuBarContainer');
 const JsMenuBar = eById('JsMenuBar');
 const JsMenuBarBlur = eById('JsMenuBarBlur');
 const JsMenuBarMagnifier = eById('JsMenuBarMagnifier');
-const JsMenuBarColor = eById('JsMenuBarColor');
 
 const remInPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
 
@@ -206,9 +205,6 @@ document.addEventListener('mousemove', function (event) {
         // Remove any scale(...) part, keep translateX
         const translateMatch = currentTransform.match(/translateX\([^)]+\)/);
         JsMenuBarMagnifier.style.transform = translateMatch ? translateMatch[0] : '';
-        // Hide mask when not hovering
-        JsMenuBarColor.style.setProperty('--mask-x', '-100%');
-        JsMenuBarColor.style.setProperty('--mask-y', '-100%');
         isMoving = false;
         return;
     }
@@ -263,17 +259,6 @@ document.addEventListener('mousemove', function (event) {
             } else {
                 JsMenuBarMagnifier.style.transform = `translateX(${translateX}px)`;
             }
-
-            // Get magnifier's actual rect after transform
-            const magnifierRect = JsMenuBarMagnifier.getBoundingClientRect();
-            
-            // Update mask position - only X coordinate follows mouse, Y stays centered
-            const maskX = ((event.clientX - barRect.left) / barRect.width) * 100;
-            JsMenuBarColor.style.setProperty('--mask-x', `${Math.max(0, Math.min(100, maskX))}%`);
-            
-            // Set mask size larger than magnifier for better coverage with gradient
-            const maskRadius = magnifierRect.width * 0.7;
-            JsMenuBarColor.style.setProperty('--mask-height', `${maskRadius}px`);
             isMouseMoveProcessing = false;
         });
         isMouseMoveProcessing = true;
