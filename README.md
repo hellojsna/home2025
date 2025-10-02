@@ -28,10 +28,12 @@ No frameworks or libraries are used: just pure web technologies.
 
 - [서울알림체 (SeoulAlrim)](https://www.seoul.go.kr/seoul/font.do)
 - [에스코어드림 (SCDream)](https://s-core.co.kr/company/font/)
+- [프리텐다드 GOV (Pretendard GOV)](https://github.com/orioncactus/pretendard)
 
 ## Getting Started
 
 Open [https://hello.jsna.dev/home2025](https://hello.jsna.dev/home2025) in your browser.
+For namecard landing page, open [https://hello.jsna.dev/home2025/namecard.html](https://hello.jsna.dev/home2025/namecard.html) in your browser.
 
 ---
 
