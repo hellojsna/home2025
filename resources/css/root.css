@@ -17,14 +17,21 @@ picture {
   justify-content: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: bold;
   word-break: keep-all;
 }
+
 h1 {
   font-size: 2em;
   line-height: 1.2;
 }
+
 h2 {
   font-size: 1.5em;
   line-height: 1.2;
@@ -39,7 +46,8 @@ button {
   cursor: pointer;
 }
 
-a, button {
+a,
+button {
   font-family: "SeoulAlrim", sans-serif;
   font-weight: 700;
 }
@@ -52,7 +60,8 @@ p {
   line-height: 1.5;
   word-break: auto-phrase;
 }
-p > span.bold {
+
+p>span.bold {
   font-weight: bold;
   background-color: var(--HighlightBackground);
 }
@@ -63,6 +72,7 @@ select {
   font-size: 1rem;
   word-break: auto-phrase;
 }
+
 :root {
   --PrimaryBackground: #f2f2f7;
   --SecondaryBackground: #ffffff;
@@ -99,6 +109,7 @@ select {
     --SMRT8: #E6186C;
   }
 }
+
 /*
 @font-face {
   font-family: "SCDream";
@@ -177,64 +188,116 @@ http://scripts.sil.org/OFL
 */
 
 @font-face {
-	font-family: 'Pretendard GOV';
-	font-weight: 900;
-	font-display: swap;
-	src: local('Pretendard GOV Black'), url(../fonts/woff2-subset/PretendardGOV-Black.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Black.subset.woff) format('woff');
+  font-family: 'Pretendard GOV';
+  font-weight: 900;
+  font-display: swap;
+  src: local('Pretendard GOV Black'), url(../fonts/woff2-subset/PretendardGOV-Black.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Black.subset.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard GOV';
-	font-weight: 800;
-	font-display: swap;
-	src: local('Pretendard GOV ExtraBold'), url(../fonts/woff2-subset/PretendardGOV-ExtraBold.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-ExtraBold.subset.woff) format('woff');
+  font-family: 'Pretendard GOV';
+  font-weight: 800;
+  font-display: swap;
+  src: local('Pretendard GOV ExtraBold'), url(../fonts/woff2-subset/PretendardGOV-ExtraBold.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-ExtraBold.subset.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard GOV';
-	font-weight: 700;
-	font-display: swap;
-	src: local('Pretendard GOV Bold'), url(../fonts/woff2-subset/PretendardGOV-Bold.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Bold.subset.woff) format('woff');
+  font-family: 'Pretendard GOV';
+  font-weight: 700;
+  font-display: swap;
+  src: local('Pretendard GOV Bold'), url(../fonts/woff2-subset/PretendardGOV-Bold.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Bold.subset.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard GOV';
-	font-weight: 600;
-	font-display: swap;
-	src: local('Pretendard GOV SemiBold'), url(../fonts/woff2-subset/PretendardGOV-SemiBold.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-SemiBold.subset.woff) format('woff');
+  font-family: 'Pretendard GOV';
+  font-weight: 600;
+  font-display: swap;
+  src: local('Pretendard GOV SemiBold'), url(../fonts/woff2-subset/PretendardGOV-SemiBold.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-SemiBold.subset.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard GOV';
-	font-weight: 500;
-	font-display: swap;
-	src: local('Pretendard GOV Medium'), url(../fonts/woff2-subset/PretendardGOV-Medium.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Medium.subset.woff) format('woff');
+  font-family: 'Pretendard GOV';
+  font-weight: 500;
+  font-display: swap;
+  src: local('Pretendard GOV Medium'), url(../fonts/woff2-subset/PretendardGOV-Medium.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Medium.subset.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard GOV';
-	font-weight: 400;
-	font-display: swap;
-	src: local('Pretendard GOV Regular'), url(../fonts/woff2-subset/PretendardGOV-Regular.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Regular.subset.woff) format('woff');
+  font-family: 'Pretendard GOV';
+  font-weight: 400;
+  font-display: swap;
+  src: local('Pretendard GOV Regular'), url(../fonts/woff2-subset/PretendardGOV-Regular.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Regular.subset.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard GOV';
-	font-weight: 300;
-	font-display: swap;
-	src: local('Pretendard GOV Light'), url(../fonts/woff2-subset/PretendardGOV-Light.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Light.subset.woff) format('woff');
+  font-family: 'Pretendard GOV';
+  font-weight: 300;
+  font-display: swap;
+  src: local('Pretendard GOV Light'), url(../fonts/woff2-subset/PretendardGOV-Light.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Light.subset.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard GOV';
-	font-weight: 200;
-	font-display: swap;
-	src: local('Pretendard GOV ExtraLight'), url(../fonts/woff2-subset/PretendardGOV-ExtraLight.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-ExtraLight.subset.woff) format('woff');
+  font-family: 'Pretendard GOV';
+  font-weight: 200;
+  font-display: swap;
+  src: local('Pretendard GOV ExtraLight'), url(../fonts/woff2-subset/PretendardGOV-ExtraLight.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-ExtraLight.subset.woff) format('woff');
 }
 
 @font-face {
-	font-family: 'Pretendard GOV';
-	font-weight: 100;
-	font-display: swap;
-	src: local('Pretendard GOV Thin'), url(../fonts/woff2-subset/PretendardGOV-Thin.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Thin.subset.woff) format('woff');
+  font-family: 'Pretendard GOV';
+  font-weight: 100;
+  font-display: swap;
+  src: local('Pretendard GOV Thin'), url(../fonts/woff2-subset/PretendardGOV-Thin.subset.woff2) format('woff2'), url(../fonts/woff-subset/PretendardGOV-Thin.subset.woff) format('woff');
+}
+
+@keyframes HelloJsTitle {
+  0% {
+    transform: translateY(100%);
+    filter: blur(8px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(100%);
+    filter: blur(8px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes HelloJsSubtitle {
+  0% {
+    transform: translateY(250%);
+    filter: blur(8px);
+    opacity: 0;
+  }
+
+  10% {
+    transform: translateY(250%);
+    filter: blur(8px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(100%);
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateY(100%);
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0%);
+    filter: blur(0);
+    opacity: 1;
+  }
 }
