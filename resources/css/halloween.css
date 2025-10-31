@@ -1,0 +1,66 @@
+:root {
+    --PrimaryBackground: #f9d9cb !important;
+    --SecondaryBackground: #f9d9cb !important;
+}
+
+#JsMenuBar {
+    background-color: #f6C0a855 !important;
+}
+
+.JsPage .PageTitle {
+    color: var(--PrimaryText) !important;
+}
+
+.JsHalloweenImage {
+    max-width: 100px;
+    max-height: 100px;
+    padding: 1rem;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+#JsHalloweenPumpkin {
+    width: 4rem;
+    height: 4rem;
+    transition: filter 0.3s;
+    z-index: 4001;
+    cursor: pointer;
+}
+.JsHalloweenBat {
+    width: 3.5rem;
+    height: 3.5rem;
+    transform: translate(0, 0);
+    transition: transform 3s, opacity 0.5s 2.5s;
+    opacity: 1;
+    z-index: 4000;
+    filter: drop-shadow(0 0 10px #f57c00) brightness(1.1);
+}
+#JsHalloweenPumpkin:hover {
+    filter: drop-shadow(0 0 10px #f57c00);
+    animation: shakeAnimation 0.5s;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --PrimaryBackground: #472718 !important;
+        --SecondaryBackground: #472718 !important;
+    }
+
+    #JsMenuBar {
+        background-color: #77412855 !important;
+    }
+}
+
+@keyframes shakeAnimation {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    10% { transform: translate(5px, 0) rotate(0deg) scale(1.1); }
+    20% { transform: translate(-5px, 0) rotate(0deg) scale(1.1); }
+    30% { transform: translate(5px, 0) rotate(0deg) scale(1.1); }
+    40% { transform: translate(-5px, 0) rotate(0deg) scale(1.1); }
+    50% { transform: translate(5px, 0) rotate(0deg) scale(1.1); }
+    60% { transform: translate(-5px, 0) rotate(0deg) scale(1.1); }
+    70% { transform: translate(5px, 0) rotate(0deg) scale(1.1); }
+    80% { transform: translate(-5px, 0) rotate(0deg) scale(1.1); }
+    90% { transform: translate(5px, 0) rotate(0deg) scale(1.1); }
+    100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+}

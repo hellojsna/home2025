@@ -28,3 +28,39 @@ function getParameter(name) {
     if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
         return decodeURIComponent(name[1]);
 }
+
+// Code for injecting halloween.css on 10/31.
+function injectHalloweenTheme() {
+    const today = new Date();
+    if (today.getMonth() == 9 && today.getDate() == 31) {
+        console.log("🎃");
+        // CSS for theme.
+        const styleElem = document.createElement("style");
+        styleElem.textContent = "@import url('./resources/css/halloween.css');";
+        document.head.appendChild(styleElem);
+        // Pumpkin on the bottom right corner.
+        const pumpkinElem = document.createElement("img");
+        pumpkinElem.src = "./resources/images/Halloween_emoji_u1f383.png";
+        pumpkinElem.id = "JsHalloweenPumpkin";
+        pumpkinElem.className = "JsHalloweenImage";
+        document.body.appendChild(pumpkinElem); 
+
+        pumpkinElem.addEventListener("click", function() {
+            const batElem = document.createElement("img");
+            batElem.src = "./resources/images/Halloween_emoji_u1f987.png";
+            batElem.className = "JsHalloweenImage JsHalloweenBat";
+            for (let i = 0; i < 5; i += 1) {
+                let randomDx = `-${Math.random() * 100}vw`
+                let randomDy = `-${Math.random() * 100}vh`
+                let batElemClone = batElem.cloneNode(true);
+                document.body.appendChild(batElemClone);
+                setTimeout(() => {
+                    batElemClone.style.transform = `translate(${randomDx}, ${randomDy})`;
+                    batElemClone.style.opacity = "0";
+                }, Math.random() * 50);
+            }
+        });
+        console.log("Halloween theme injected.");
+    }
+}
+injectHalloweenTheme();
