@@ -57,6 +57,9 @@ function injectHalloweenTheme() {
                 setTimeout(() => {
                     batElemClone.style.transform = `translate(${randomDx}, ${randomDy})`;
                     batElemClone.style.opacity = "0";
+                    setTimeout(() => {
+                        document.body.removeChild(batElemClone);
+                    }, 3500);
                 }, Math.random() * 50);
             }
         });
