@@ -3,6 +3,10 @@
     --SecondaryBackground: #f9d9cb !important;
 }
 
+body.JsHalloweenCursor {
+    cursor: url('../images/Halloween_cursor.png') 18 18, auto !important;
+}
+
 #HelloJs * {
     color: #f57c00 !important;
     text-shadow: 0 0 10px #ffffff;

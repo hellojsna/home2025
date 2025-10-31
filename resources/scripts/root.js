@@ -45,6 +45,7 @@ function injectHalloweenTheme() {
         pumpkinElem.className = "JsHalloweenImage";
         document.body.appendChild(pumpkinElem); 
         pumpkinElem.addEventListener("click", function() {
+            document.body.classList.add("JsHalloweenCursor");
             const batElem = document.createElement("img");
             batElem.src = "./resources/images/Halloween_emoji_u1f987.png";
             batElem.className = "JsHalloweenImage JsHalloweenBat";
