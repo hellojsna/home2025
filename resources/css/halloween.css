@@ -7,7 +7,9 @@
     color: #f57c00 !important;
     text-shadow: 0 0 10px #ffffff;
 }
-
+#JsMenuBar a.active, #JsMenuBar a:hover, #JsMenuBar a.active > svg, #JsMenuBar a:hover > svg {
+    color: #f57c00 !important;
+}
 #JsMenuBar {
     background-color: #f6C0a855 !important;
 }
@@ -39,6 +41,7 @@
     opacity: 1;
     z-index: 4000;
     filter: drop-shadow(0 0 10px #f57c00) brightness(1.1);
+    pointer-events: none;
 }
 #JsHalloweenPumpkin:hover {
     filter: drop-shadow(0 0 10px #f57c00);
