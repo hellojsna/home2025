@@ -14,7 +14,7 @@
 .JsHalloweenImage {
     max-width: 100px;
     max-height: 100px;
-    padding: 1rem;
+    margin: 1rem;
     position: fixed;
     right: 0;
     bottom: 0;
