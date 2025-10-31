@@ -3,6 +3,11 @@
     --SecondaryBackground: #f9d9cb !important;
 }
 
+#HelloJs * {
+    color: #f57c00 !important;
+    text-shadow: 0 0 10px #ffffff;
+}
+
 #JsMenuBar {
     background-color: #f6C0a855 !important;
 }
@@ -40,14 +45,31 @@
     animation: shakeAnimation 0.5s;
 }
 
+#JsHalloweenText {
+    margin: 0 1rem 5rem 0;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 4001;
+    text-shadow: 0 0 10px #ffffff;
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --PrimaryBackground: #472718 !important;
         --SecondaryBackground: #472718 !important;
     }
 
+    #HelloJs * {
+        text-shadow: 0 0 10px #000000 !important;
+    }
+
     #JsMenuBar {
         background-color: #77412855 !important;
+    }
+
+    #JsHalloweenText {
+        text-shadow: 0 0 10px #000000;
     }
 }
 

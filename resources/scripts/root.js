@@ -44,7 +44,6 @@ function injectHalloweenTheme() {
         pumpkinElem.id = "JsHalloweenPumpkin";
         pumpkinElem.className = "JsHalloweenImage";
         document.body.appendChild(pumpkinElem); 
-
         pumpkinElem.addEventListener("click", function() {
             const batElem = document.createElement("img");
             batElem.src = "./resources/images/Halloween_emoji_u1f987.png";
@@ -63,6 +62,17 @@ function injectHalloweenTheme() {
                 }, Math.random() * 50);
             }
         });
+
+        const halloweenTextList = ["Happy Halloween!", "Trick or Treat!", "Boo!", "Click the pumpkin!"];
+        const halloweenTextElem = document.createElement("div");
+        halloweenTextElem.id = "JsHalloweenText";
+        halloweenTextElem.textContent = halloweenTextList[0];
+        document.body.appendChild(halloweenTextElem);
+        let textIndex = 0;
+        setInterval(() => {
+            textIndex = (textIndex + 1) % halloweenTextList.length;
+            halloweenTextElem.textContent = halloweenTextList[textIndex];
+        }, 3000);
         console.log("Halloween theme injected.");
     }
 }
