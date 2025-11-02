@@ -43,9 +43,9 @@ function injectHalloweenTheme() {
         pumpkinElem.src = "./resources/images/Halloween_emoji_u1f383.png";
         pumpkinElem.id = "JsHalloweenPumpkin";
         pumpkinElem.className = "JsHalloweenImage";
-        document.body.appendChild(pumpkinElem); 
-        pumpkinElem.addEventListener("click", function() {
-            document.body.classList.add("JsHalloweenCursor");
+        document.body.appendChild(pumpkinElem);
+        let batCursorEnabled = false;
+        function summonBats() {
             const batElem = document.createElement("img");
             batElem.src = "./resources/images/Halloween_emoji_u1f987.png";
             batElem.className = "JsHalloweenImage JsHalloweenBat";
@@ -61,6 +61,16 @@ function injectHalloweenTheme() {
                         document.body.removeChild(batElemClone);
                     }, 3500);
                 }, Math.random() * 50);
+            }
+        }
+        pumpkinElem.addEventListener("click", function() {
+            document.body.classList.add("JsHalloweenCursor");
+            batCursorEnabled = true;
+            summonBats();
+        });
+        document.body.addEventListener("click", function() {
+            if (batCursorEnabled) {
+                summonBats();
             }
         });
         eById("HelloVideo").getElementsByTagName("img")[0].src = "./resources/images/Halloween_background.png";

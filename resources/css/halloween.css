@@ -23,7 +23,7 @@ body.JsHalloweenCursor {
 }
 
 #JsMenuBar a.active, #JsMenuBar a:hover, #JsMenuBar a.active > svg, #JsMenuBar a:hover > svg {
-    color: #f57c00 !important;
+    color: #00aa00 !important;
 }
 #JsMenuBar {
     background-color: #f6C0a855 !important;
