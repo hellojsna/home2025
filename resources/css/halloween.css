@@ -18,6 +18,10 @@ body.JsHalloweenCursor {
     animation: fadeHalloweenBackground 2s ease-in-out forwards;
 }
 
+#HelloContent {
+    background-color: transparent !important
+}
+
 #JsMenuBar a.active, #JsMenuBar a:hover, #JsMenuBar a.active > svg, #JsMenuBar a:hover > svg {
     color: #f57c00 !important;
 }
