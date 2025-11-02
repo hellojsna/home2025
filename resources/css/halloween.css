@@ -22,6 +22,16 @@ body.JsHalloweenCursor {
     color: var(--PrimaryText) !important;
 }
 
+#JsAppDetailBackground::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    background-image: url('../images/Halloween_emoji_u1f383.png') !important;
+}
 .JsHalloweenImage {
     max-width: 100px;
     max-height: 100px;

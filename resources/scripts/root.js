@@ -32,7 +32,7 @@ function getParameter(name) {
 // Code for injecting halloween.css on 10/31.
 function injectHalloweenTheme() {
     const today = new Date();
-    if (today.getMonth() == 9 && today.getDate() == 31) {
+    if (today.getMonth() == 9 && today.getDate() > 24 || today.getMonth() == 10 && today.getDate() < 7) { // not only 10/31
         console.log("🎃");
         // CSS for theme.
         const styleElem = document.createElement("style");
