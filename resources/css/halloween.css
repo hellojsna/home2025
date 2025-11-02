@@ -80,12 +80,15 @@ body.JsHalloweenCursor {
     bottom: 0;
     z-index: 4001;
     text-shadow: 0 0 10px #ffffff;
+    color: #f57c00;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         --PrimaryBackground: #472718 !important;
         --SecondaryBackground: #472718 !important;
+        --HighlightBackground: #005500 !important;
+        --blue: #00aa00 !important; /* It's not blue! */
     }
 
     #HelloJs * {
