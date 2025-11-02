@@ -63,7 +63,8 @@ function injectHalloweenTheme() {
                 }, Math.random() * 50);
             }
         });
-
+        eById("HelloVideo").getElementsByTagName("img")[0].src = "./resources/images/Halloween_background.png";
+        eById("HelloVideo").getElementsByTagName("source")[0].srcset = "./resources/images/Halloween_background.png";
         const halloweenTextList = ["Happy Halloween!", "Trick or Treat!", "Boo!", "Click the pumpkin!"];
         const halloweenTextElem = document.createElement("div");
         halloweenTextElem.id = "JsHalloweenText";
